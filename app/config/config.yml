@@ -2,11 +2,13 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@ConsumerBundle/Resources/config/services.yml" }
+    - { resource: "@CustomerBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
@@ -68,3 +70,11 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+fos_rest:
+    body_converter:
+        enabled: true
+    view:
+        formats: { json: true, xml: false, rss: false }
+    serializer:
+        serialize_null: true
