@@ -5,8 +5,9 @@
  * Date: 26/06/17
  * Time: 19:00
  */
-namespace AppBundle\Entity;
+namespace CustomerBundle\Entity;
 
+use AppBundle\Entity\UserTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Customer

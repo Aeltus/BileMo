@@ -5,13 +5,14 @@
  * Date: 26/06/17
  * Time: 19:07
  */
-namespace AppBundle\Entity;
+namespace ConsumerBundle\Entity;
 
+use AppBundle\Entity\UserTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Consumer
 {
-    //use \AppBundle\Entity\UserTrait;
+    use UserTrait;
 
     private $id;
 

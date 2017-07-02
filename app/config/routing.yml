@@ -1,3 +1,11 @@
+customer:
+    resource: "@CustomerBundle/Resources/config/routing.yml"
+    prefix:   /
+
+consumer:
+    resource: "@ConsumerBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
