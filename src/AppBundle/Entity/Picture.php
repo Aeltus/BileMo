@@ -7,16 +7,48 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ *
+ * @ORM\Table(name="picture")
+ * @ORM\Entity(repositoryClass="BileMo\AppBundle\Repository\PictureRepository")
+ *
+ */
 class Picture
 {
 
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="url", type="string", nullable=false, unique=true)
+     *
+     */
     private $url;
 
+    /**
+     * @ORM\Column(name="alt", type="string", nullable=false, unique=false, length=100)
+     *
+     */
     private $alt;
 
+    /**
+     * @ORM\Column(name="is_default", type="boolean", nullable=false)
+     *
+     */
     private $isDefault = False;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\ParticularProduct", inversedBy="pictures")
+     *
+     */
+    private $particularProduct;
 
     /**
      * @return mixed
@@ -45,6 +77,14 @@ class Picture
     public function isDafault()
     {
         return $this->isDefault;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParticularProduct()
+    {
+        return $this->particularProduct;
     }
 
     /**
@@ -77,6 +117,14 @@ class Picture
     public function setIsDefault($isDefault)
     {
         $this->isDefault = $isDefault;
+    }
+
+    /**
+     * @param mixed $particularProduct
+     */
+    public function setParticularProduct(ParticularProduct $particularProduct)
+    {
+        $this->particularProduct = $particularProduct;
     }
 
 }

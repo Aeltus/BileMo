@@ -1,0 +1,51 @@
+1:
+  description: "Samsung galaxy S8 plus"
+  brand: "Samsung"
+  name: "Galaxy S8 plus"
+  cameraResolution: 12
+  os: "Android"
+  screenSize: 6.2
+  rate: 4G
+  sar: 0.26
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Noir carbonne"
+    colorThumbnail: "#0000000"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 909
+    vat: 151.50
+    stock: 100
+    isAvailable: True
+  2:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Argent polaire"
+    colorThumbnail: "#ABAEB2"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 909
+    vat: 151.50
+    stock: 100
+    isAvailable: True
+  3:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Orchidée"
+    colorThumbnail: "#9895AA"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 909
+    vat: 151.50
+    stock: 100
+    isAvailable: True
+

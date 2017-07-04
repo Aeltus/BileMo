@@ -7,10 +7,28 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ *
+ * @ORM\Table(name="os")
+ * @ORM\Entity(repositoryClass="BileMo\AppBundle\Repository\OsRepository")
+ *
+ */
 class Os
 {
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="name", type="string", nullable=false, unique=true)
+     *
+     */
     private $name;
 
     /**

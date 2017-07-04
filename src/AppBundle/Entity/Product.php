@@ -7,28 +7,84 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ *
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="BileMo\AppBundle\Repository\ProductRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"product" = "Product", "particularProduct" = "ParticularProduct"})
+ */
 class Product
 {
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="name", type="string", nullable=false, length=100)
+     *
+     */
     private $name;
 
+    /**
+     * @ORM\Column(name="description", type="string", nullable=false)
+     *
+     */
     private $description;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Brand")
+     *
+     */
     private $brand;
 
+    /**
+     * @ORM\Column(name="camera_resolution", type="float", nullable=false)
+     *
+     */
     private $cameraResolution;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Os")
+     *
+     */
     private $os;
 
+    /**
+     * @ORM\Column(name="screen_size", type="float", nullable=false)
+     *
+     */
     private $screenSize;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Rate")
+     *
+     */
     private $rate;
 
+    /**
+     * @ORM\Column(name="sar", type="float", nullable=false)
+     *
+     */
     private $sar;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SimCard")
+     *
+     */
     private $simCard;
 
+    /**
+     * @ORM\Column(name="is_tactile", type="boolean", nullable=false)
+     *
+     */
     private $isTactile;
 
     /**
