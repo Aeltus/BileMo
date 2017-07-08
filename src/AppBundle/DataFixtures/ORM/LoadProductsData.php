@@ -65,16 +65,12 @@ class LoadProductsData extends AbstractFixture implements OrderedFixtureInterfac
                         } else {
                             foreach ($particularProductData as $pictureData)
                             {
-                                $method = 'add'.ucfirst(substr($particularProductDataName, 0, -1));
                                 $picture = $this->getReference($pictureData);
-                                $particularProduct->$method($picture);
-                                                            }
+                                $particularProduct->addPicture($picture);
+                            }
                         }
                     }
-                    if ($particularProduct->getMemory() !== NULL)
-                    {
-                        $manager->persist($particularProduct);
-                    }
+                    $manager->persist($particularProduct);
                 }
 
             }

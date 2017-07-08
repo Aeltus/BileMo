@@ -44,18 +44,18 @@ class ParticularProduct extends Product
     private $colorThumbnail;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Picture", mappedBy="particularProduct", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Picture", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)
      *
      */
-    private $pictures = [];
+    private $pictures;
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Feature", mappedBy="particularProduct", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)
      *
      */
-    private $features = [];
+    private $features;
 
     /**
      * @ORM\Column(name="price", type="float", nullable=false)
@@ -95,7 +95,9 @@ class ParticularProduct extends Product
 
     public function __construct()
     {
-        $this->availabilityDate= new \DateTime();
+        $this->availabilityDate = new \DateTime();
+        $this->pictures = new ArrayCollection();
+        $this->features = new ArrayCollection();
     }
 
     /**

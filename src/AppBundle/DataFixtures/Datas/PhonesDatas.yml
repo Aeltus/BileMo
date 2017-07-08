@@ -13,7 +13,7 @@
     memory: 64
     memoryUnit: Go
     colorName: "Noir carbonne"
-    colorThumbnail: "#0000000"
+    colorThumbnail: "#000000"
     pictures:
       - "1.jpg"
       - "2.jpg"
@@ -22,6 +22,7 @@
     vat: 151.50
     stock: 100
     isAvailable: True
+    isDefault: True
   2:
     memory: 64
     memoryUnit: Go
@@ -35,6 +36,7 @@
     vat: 151.50
     stock: 100
     isAvailable: True
+    isDefault: False
   3:
     memory: 64
     memoryUnit: Go
@@ -48,4 +50,5 @@
     vat: 151.50
     stock: 100
     isAvailable: True
+    isDefault: False
 

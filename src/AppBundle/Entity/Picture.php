@@ -45,12 +45,6 @@ class Picture
     private $isDefault = False;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\ParticularProduct", inversedBy="pictures")
-     *
-     */
-    private $particularProduct;
-
-    /**
      * @return mixed
      */
     public function getId()
