@@ -17,7 +17,7 @@ class LoadBrandsData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $brands =  ["Samsung", "Apple", "Wiko", "Sony", "Asus"];
+        $brands =  ["Samsung", "Apple", "Wiko", "Sony", "Alcatel"];
 
         foreach ($brands as $brand)
         {
