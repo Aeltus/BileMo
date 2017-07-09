@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  *
  * @ORM\Table(name="particular_product")
- * @ORM\Entity(repositoryClass="BileMo\AppBundle\Repository\ParticularProductRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ParticularProductRepository")
  *
  */
 class ParticularProduct extends Product
