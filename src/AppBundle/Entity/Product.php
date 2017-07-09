@@ -8,6 +8,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  *
@@ -16,6 +19,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"product" = "Product", "particularProduct" = "ParticularProduct"})
+ *
+ * @ExclusionPolicy("all")
  */
 class Product
 {
@@ -24,66 +29,77 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
+     * @Expose
      */
     private $id;
 
     /**
      * @ORM\Column(name="name", type="string", nullable=false, length=100)
      *
+     * @Expose
      */
     private $name;
 
     /**
      * @ORM\Column(name="description", type="string", nullable=false)
      *
+     * @Expose
      */
     private $description;
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Brand")
      *
+     * @Expose
      */
     private $brand;
 
     /**
      * @ORM\Column(name="camera_resolution", type="float", nullable=false)
      *
+     * @Expose
      */
     private $cameraResolution;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Os")
      *
+     * @Expose
      */
     private $os;
 
     /**
      * @ORM\Column(name="screen_size", type="float", nullable=false)
      *
+     * @Expose
      */
     private $screenSize;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Rate")
      *
+     * @Expose
      */
     private $rate;
 
     /**
      * @ORM\Column(name="sar", type="float", nullable=false)
      *
+     * @Expose
      */
     private $sar;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SimCard")
      *
+     * @Expose
      */
     private $simCard;
 
     /**
      * @ORM\Column(name="is_tactile", type="boolean", nullable=false)
      *
+     * @Expose
      */
     private $isTactile;
 

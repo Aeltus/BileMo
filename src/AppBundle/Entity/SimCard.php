@@ -8,12 +8,16 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  *
  * @ORM\Table(name="sim_card")
  * @ORM\Entity(repositoryClass="BileMo\AppBundle\Repository\SimCardRepository")
  *
+ * @ExclusionPolicy("all")
  */
 class SimCard
 {
@@ -28,6 +32,7 @@ class SimCard
     /**
      * @ORM\Column(name="name", type="string", nullable=false, unique=true)
      *
+     * @Expose
      */
     private $name;
 
