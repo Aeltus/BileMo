@@ -7,6 +7,7 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
@@ -102,6 +103,11 @@ class Product
      * @Expose
      */
     private $isTactile;
+
+    public function __construct()
+    {
+        $this->detailedProducts = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -278,5 +284,4 @@ class Product
     {
         $this->isTactile = $isTactile;
     }
-
 }

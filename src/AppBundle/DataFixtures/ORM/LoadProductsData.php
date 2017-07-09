@@ -53,15 +53,19 @@ class LoadProductsData extends AbstractFixture implements OrderedFixtureInterfac
                         } else {
                             $method2 = 'get'.ucfirst($attribute->getName());
                         }
-                        $particularProduct->$method($product->$method2());
+                        if (method_exists($particularProduct, $method) && method_exists($product, $method2)){
+                            $particularProduct->$method($product->$method2());
+                        }
                     }
 
                     foreach ($particularProductDatas as $particularProductDataName=>$particularProductData)
                     {
                         if ($particularProductDataName !== "pictures")
                         {
-                            $method = 'set'.ucfirst($particularProductDataName);
-                            $particularProduct->$method($particularProductData);
+                            if ($particularProductDataName !== "detailedProducts") {
+                                $method = 'set' . ucfirst($particularProductDataName);
+                                $particularProduct->$method($particularProductData);
+                            }
                         } else {
                             foreach ($particularProductData as $pictureData)
                             {
