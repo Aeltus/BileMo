@@ -14,15 +14,15 @@ use Pagerfanta\Pagerfanta;
 
 abstract class AbstractRepository extends EntityRepository
 {
-    protected function paginate(QueryBuilder $qb, $limit = 5, $offset = 0)
+    protected function paginate(QueryBuilder $qb, $limit = 5, $page = 1)
     {
         if (0 == $limit) {
-            throw new \LogicException('$limit & $offstet must be greater than 0.');
+            throw new \LogicException('limit must be greater than 0.');
         }
 
         $pager = new Pagerfanta(new DoctrineORMAdapter($qb));
 
-        $currentPage = ceil(($offset + 1)/ $limit);
+        $currentPage = $page;
         $pager->setCurrentPage($currentPage);
         $pager->setMaxPerPage((int) $limit);
 

@@ -11,7 +11,7 @@ use AppBundle\Repository\AbstractRepository;
 
 class ProductRepository extends AbstractRepository
 {
-    public function search($brand, $order = 'asc', $limit = 5, $offset = 0)
+    public function search($brand, $order = 'asc', $limit = 5, $page = 1)
     {
         $qb = $this
             ->createQueryBuilder('p')
@@ -25,6 +25,6 @@ class ProductRepository extends AbstractRepository
                 ->setParameter(1, $brand);
         }
 
-        return $this->paginate($qb, $limit, $offset);
+        return $this->paginate($qb, $limit, $page);
     }
 }

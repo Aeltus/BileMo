@@ -39,31 +39,28 @@ class DefaultController extends Controller
      *     description="Max number of products per page."
      * )
      * @Rest\QueryParam(
-     *     name="offset",
+     *     name="page",
      *     requirements="\d+",
-     *     default="0",
+     *     default="1",
      *     description="The pagination offset"
      * )
      * @Rest\View(
      *     statusCode = 200
      * )
      */
-    public function indexAction($brand, $order, $limit, $offset)
+    public function indexAction($brand, $order, $limit, $page)
     {
         $pager = $this->getDoctrine()->getRepository('AppBundle:Product')->search(
             $brand,
             $order,
             $limit,
-            $offset
+            $page
         );
 
-        /*return new Products($pager);*/
-
-        $pagerfantaFactory   = new PagerfantaFactory(); // you can pass the page,
-        // and limit parameters name
+        $pagerfantaFactory   = new PagerfantaFactory();
         $paginatedCollection = $pagerfantaFactory->createRepresentation(
             $pager,
-            new Route('app_articles_show', array())
+            new Route('app_articles_show', array(), true)
         );
 
         return $paginatedCollection;
