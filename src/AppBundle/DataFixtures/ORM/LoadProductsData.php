@@ -53,7 +53,7 @@ class LoadProductsData extends AbstractFixture implements OrderedFixtureInterfac
                         } else {
                             $method2 = 'get'.ucfirst($attribute->getName());
                         }
-                        if (method_exists($particularProduct, $method) && method_exists($product, $method2)){
+                        if (method_exists($particularProduct, $method) && method_exists($product, $method2) && $method !== "setLinked"){
                             $particularProduct->$method($product->$method2());
                         }
                     }
@@ -62,7 +62,7 @@ class LoadProductsData extends AbstractFixture implements OrderedFixtureInterfac
                     {
                         if ($particularProductDataName !== "pictures")
                         {
-                            if ($particularProductDataName !== "detailedProducts") {
+                            if ($particularProductDataName !== "linked") {
                                 $method = 'set' . ucfirst($particularProductDataName);
                                 $particularProduct->$method($particularProductData);
                             }
@@ -74,6 +74,7 @@ class LoadProductsData extends AbstractFixture implements OrderedFixtureInterfac
                             }
                         }
                     }
+                    $particularProduct->setProduct($product);
                     $manager->persist($particularProduct);
                 }
 

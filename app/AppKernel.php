@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new ConsumerBundle\ConsumerBundle(),
             new CustomerBundle\CustomerBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

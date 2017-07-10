@@ -579,3 +579,42 @@
     stock: 100
     isAvailable: True
     isDefault: True
+11:
+  description: "Samsung Galaxy J3"
+  brand: "Samsung"
+  name: "Galaxy J3"
+  cameraResolution: 8
+  os: "Android"
+  screenSize: 5
+  rate: 4G
+  sar: 0.425
+  simCard: Micro-sim
+  isTactile: True
+  1:
+    memory: 8
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#2F2F2F"
+    pictures:
+      - "8.jpg"
+      - "9.jpg"
+      - "10.jpg"
+    price: 159
+    vat: 26.5
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 8
+    memoryUnit: Go
+    colorName: "Or"
+    colorThumbnail: "#C9B8A6"
+    pictures:
+      - "8.jpg"
+      - "9.jpg"
+      - "10.jpg"
+    price: 159
+    vat: 26.5
+    stock: 100
+    isAvailable: True
+    isDefault: True

@@ -93,8 +93,15 @@ class ParticularProduct extends Product
      */
     private $isDefault = False;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product", inversedBy="linked")
+     *
+     */
+    private $product;
+
     public function __construct()
     {
+        parent::__construct();
         $this->availabilityDate = new \DateTime();
         $this->pictures = new ArrayCollection();
         $this->features = new ArrayCollection();
@@ -188,6 +195,14 @@ class ParticularProduct extends Product
     public function isDefault()
     {
         return $this->isDefault;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 
     /**
@@ -293,6 +308,14 @@ class ParticularProduct extends Product
     public function removeFeature(Feature $feature)
     {
         $this->features->removeElement($feature);
+    }
+
+    /**
+     * @param mixed $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
     }
     
     /*===============

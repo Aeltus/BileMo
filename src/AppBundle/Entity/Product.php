@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
+use Hateoas\Configuration\Annotation as Hateoas;
 
 /**
  *
@@ -20,6 +21,46 @@ use JMS\Serializer\Annotation\Expose;
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"product" = "Product", "particularProduct" = "ParticularProduct"})
+ *
+ * @Hateoas\Relation(
+ *      "self",
+ *      href = @Hateoas\Route(
+ *          "app_articles_show_one",
+ *          parameters = { "id" = "expr(object.getId())" },
+ *          absolute = true
+ *      ),
+ *     exclusion = @Hateoas\Exclusion(
+ *          excludeIf = "expr(object.isInstanceOfParticularProduct() === true)"
+ *      )
+ * )
+ *
+ * @Hateoas\Relation(
+ *      "self",
+ *      href = @Hateoas\Route(
+ *          "app_detailed_articles_show_one",
+ *          parameters = { "id" = "expr(object.getId())" },
+ *          absolute = true
+ *      ),
+ *     exclusion = @Hateoas\Exclusion(
+ *          excludeIf = "expr(object.isInstanceOfParticularProduct() === false)"
+ *      )
+ * )
+ *
+ * @Hateoas\Relation(
+ *      "index",
+ *      href = @Hateoas\Route(
+ *          "app_articles_show",
+ *          absolute = true
+ *      )
+ * )
+ *
+ * @Hateoas\Relation(
+ *     "detailed_products",
+ *     embedded = @Hateoas\Embedded("expr(object.getLinked())"),
+ *     exclusion = @Hateoas\Exclusion(
+ *          excludeIf = "expr(object.isInstanceOfParticularProduct() === true)"
+ *      )
+ * )
  *
  * @ExclusionPolicy("all")
  */
@@ -104,9 +145,15 @@ class Product
      */
     private $isTactile;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ParticularProduct", mappedBy="product", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $linked;
+
     public function __construct()
     {
-        $this->detailedProducts = new ArrayCollection();
+        $this->linked = new ArrayCollection();
     }
 
     /**
@@ -198,6 +245,14 @@ class Product
     }
 
     /**
+     * @return mixed
+     */
+    public function getLinked()
+    {
+        return $this->linked;
+    }
+
+    /**
      * @param mixed $id
      */
     public function setId($id)
@@ -283,5 +338,24 @@ class Product
     public function setIsTactile($isTactile)
     {
         $this->isTactile = $isTactile;
+    }
+
+    public function addLinked($linked)
+    {
+        $this->linked[] = $linked;
+    }
+
+    public function removeLinked($linked)
+    {
+        $this->linked->removeElement($linked);
+    }
+
+    public function isInstanceOfParticularProduct()
+    {
+        if($this instanceof ParticularProduct)
+        {
+            return true;
+        }
+        return false;
     }
 }
