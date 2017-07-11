@@ -1,0 +1,620 @@
+1:
+  description: "Samsung galaxy S8 plus"
+  brand: "Samsung"
+  name: "Galaxy S8 plus"
+  cameraResolution: 12
+  os: "Android"
+  screenSize: 6.2
+  rate: 4G
+  sar: 0.26
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Noir carbonne"
+    colorThumbnail: "#000000"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 909
+    vat: 151.50
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Argent polaire"
+    colorThumbnail: "#ABAEB2"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 909
+    vat: 151.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  3:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Orchidée"
+    colorThumbnail: "#9895AA"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 909
+    vat: 151.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+
+2:
+  description: "Apple IPhone 7 plus"
+  brand: "Apple"
+  name: "Iphone 7 plus"
+  cameraResolution: 12
+  os: "IOs"
+  screenSize: 5.5
+  rate: 4G
+  sar: 1.24
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#313337"
+    pictures:
+      - "4.jpg"
+    price: 879
+    vat: 146.5
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 128
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#323337"
+    pictures:
+      - "4.jpg"
+    price: 999
+    vat: 166.5
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  3:
+    memory: 256
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#323337"
+    pictures:
+      - "4.jpg"
+    price: 1119
+    vat: 186.5
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  4:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Argent"
+    colorThumbnail: "#E1E2E3"
+    pictures:
+      - "4.jpg"
+    price: 879
+    vat: 146.5
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  5:
+    memory: 128
+    memoryUnit: Go
+    colorName: "Argent"
+    colorThumbnail: "#E1E2E3"
+    pictures:
+      - "4.jpg"
+    price: 999
+    vat: 166.5
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  6:
+    memory: 256
+    memoryUnit: Go
+    colorName: "Argent"
+    colorThumbnail: "#E1E2E3"
+    pictures:
+      - "4.jpg"
+    price: 1119
+    vat: 186.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  7:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Or"
+    colorThumbnail: "#EED6BD"
+    pictures:
+      - "4.jpg"
+    price: 879
+    vat: 146.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  8:
+    memory: 128
+    memoryUnit: Go
+    colorName: "Or"
+    colorThumbnail: "#EED6BD"
+    pictures:
+      - "4.jpg"
+    price: 999
+    vat: 166.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  9:
+    memory: 256
+    memoryUnit: Go
+    colorName: "Or"
+    colorThumbnail: "#EED6BD"
+    pictures:
+      - "4.jpg"
+    price: 1119
+    vat: 186.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  10:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Or Rose"
+    colorThumbnail: "#F8D0CB"
+    pictures:
+      - "4.jpg"
+    price: 879
+    vat: 146.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  11:
+    memory: 128
+    memoryUnit: Go
+    colorName: "Or Rose"
+    colorThumbnail: "#F8D0CB"
+    pictures:
+      - "4.jpg"
+    price: 999
+    vat: 166.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  12:
+    memory: 256
+    memoryUnit: Go
+    colorName: "Or Rose"
+    colorThumbnail: "#F8D0CB"
+    pictures:
+      - "4.jpg"
+    price: 1119
+    vat: 186.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  13:
+    memory: 128
+    memoryUnit: Go
+    colorName: "Noir de Jais"
+    colorThumbnail: "#000000"
+    pictures:
+      - "4.jpg"
+    price: 999
+    vat: 166.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  14:
+    memory: 256
+    memoryUnit: Go
+    colorName: "Noir de Jais"
+    colorThumbnail: "#000000"
+    pictures:
+      - "4.jpg"
+    price: 1119
+    vat: 186.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  15:
+    memory: 128
+    memoryUnit: Go
+    colorName: "Rouge"
+    colorThumbnail: "#BC2B38"
+    pictures:
+      - "4.jpg"
+    price: 999
+    vat: 166.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  16:
+    memory: 256
+    memoryUnit: Go
+    colorName: "Rouge"
+    colorThumbnail: "#BC2B38"
+    pictures:
+      - "4.jpg"
+    price: 1119
+    vat: 186.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+3:
+  description: "Samsung S8"
+  brand: "Samsung"
+  name: "S8"
+  cameraResolution: 12
+  os: "Android"
+  screenSize: 5.8
+  rate: 4G
+  sar: 0.315
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Noir Carbonne"
+    colorThumbnail: "#000000"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 809
+    vat: 134.83
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Argent Polaire"
+    colorThumbnail: "#ABAEB2"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 809
+    vat: 134.83
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  3:
+    memory: 64
+    memoryUnit: Go
+    colorName: "Orchidée"
+    colorThumbnail: "#9895AA"
+    pictures:
+      - "1.jpg"
+      - "2.jpg"
+      - "3.jpg"
+    price: 809
+    vat: 134.83
+    stock: 100
+    isAvailable: True
+    isDefault: False
+4:
+  description: "Apple IPhone 6S"
+  brand: "Apple"
+  name: "6s"
+  cameraResolution: 12
+  os: "IOs"
+  screenSize: 4.7
+  rate: 4G
+  sar: 0.87
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Gris Sidéral"
+    colorThumbnail: "#BABBC0"
+    pictures:
+      - "5.jpg"
+      - "6.jpg"
+      - "7.jpg"
+    price: 639
+    vat: 106.50
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Argent"
+    colorThumbnail: "#D3D4D5"
+    pictures:
+      - "5.jpg"
+      - "6.jpg"
+      - "7.jpg"
+    price: 639
+    vat: 106.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  3:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Or"
+    colorThumbnail: "#E7CDB3"
+    pictures:
+      - "5.jpg"
+      - "6.jpg"
+      - "7.jpg"
+    price: 639
+    vat: 106.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  4:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Or Rose"
+    colorThumbnail: "#F3C8C2"
+    pictures:
+      - "5.jpg"
+      - "6.jpg"
+      - "7.jpg"
+    price: 639
+    vat: 106.50
+    stock: 100
+    isAvailable: True
+    isDefault: False
+5:
+  description: "Samsung Galaxy S7"
+  brand: "Samsung"
+  name: "S7"
+  cameraResolution: 12
+  os: "IOs"
+  screenSize: 5.1
+  rate: 4G
+  sar: 0.41
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Or"
+    colorThumbnail: "#C7BCAA"
+    pictures:
+      - "8.jpg"
+      - "9.jpg"
+      - "10.jpg"
+    price: 599
+    vat: 99.83
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#1C232B"
+    pictures:
+      - "8.jpg"
+      - "9.jpg"
+      - "10.jpg"
+    price: 599
+    vat: 99.83
+    stock: 100
+    isAvailable: True
+    isDefault: False
+  3:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Rose"
+    colorThumbnail: "#DCC3BE"
+    pictures:
+      - "8.jpg"
+      - "9.jpg"
+      - "10.jpg"
+    price: 599
+    vat: 99.83
+    stock: 100
+    isAvailable: True
+    isDefault: False
+6:
+  description: "Wiko Ufeel"
+  brand: "Wiko"
+  name: "Ufeel"
+  cameraResolution: 13
+  os: "Android"
+  screenSize: 5
+  rate: 4G
+  sar: 0.582
+  simCard: Micro-sim
+  isTactile: True
+  1:
+    memory: 16
+    memoryUnit: Go
+    colorName: "Gris Sidéral"
+    colorThumbnail: "#565656"
+    pictures:
+      - "11.jpg"
+      - "12.jpg"
+      - "13.jpg"
+    price: 149
+    vat: 24.83
+    stock: 100
+    isAvailable: True
+    isDefault: True
+7:
+  description: "Sony Xpéria XA1"
+  brand: "Sony"
+  name: "Xpéria XA1"
+  cameraResolution: 23
+  os: "Android"
+  screenSize: 5
+  rate: 4G
+  sar: 0.56
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 32
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#000000"
+    pictures:
+      - "14.jpg"
+      - "15.jpg"
+      - "16.jpg"
+    price: 289
+    vat: 48.17
+    stock: 100
+    isAvailable: True
+    isDefault: True
+8:
+  description: "Sony Xpéria XA"
+  brand: "Sony"
+  name: "Xpéria XA"
+  cameraResolution: 13
+  os: "Android"
+  screenSize: 5
+  rate: 4G
+  sar: 0.473
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 16
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#5E5E5E"
+    pictures:
+      - "17.jpg"
+      - "18.jpg"
+      - "19.jpg"
+    price: 179
+    vat: 29.83
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 16
+    memoryUnit: Go
+    colorName: "Blanc"
+    colorThumbnail: "#F0EBEF"
+    pictures:
+      - "17.jpg"
+      - "18.jpg"
+      - "19.jpg"
+    price: 179
+    vat: 29.83
+    stock: 100
+    isAvailable: True
+    isDefault: False
+9:
+  description: "Alcatel POP 4-6"
+  brand: "Alcatel"
+  name: "POP 4-6"
+  cameraResolution: 13
+  os: "Android"
+  screenSize: 6
+  rate: 4G
+  sar: 0.51
+  simCard: Nano-sim
+  isTactile: True
+  1:
+    memory: 16
+    memoryUnit: Go
+    colorName: "Blanc et Or"
+    colorThumbnail: "#CCBCA5"
+    pictures:
+      - "20.jpg"
+      - "21.jpg"
+    price: 239
+    vat: 39.83
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 16
+    memoryUnit: Go
+    colorName: "Slate Black"
+    colorThumbnail: "#3E3C3F"
+    pictures:
+      - "20.jpg"
+      - "21.jpg"
+    price: 239
+    vat: 39.83
+    stock: 100
+    isAvailable: True
+    isDefault: False
+10:
+  description: "Alcatel 20.45x"
+  brand: "Alcatel"
+  name: "20.45x"
+  cameraResolution: 1
+  os: "Autre"
+  screenSize: 2.4
+  rate: 4G
+  sar: 0.806
+  simCard: Micro-sim
+  isTactile: False
+  1:
+    memory: 0
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#000000"
+    pictures:
+      - "22.jpg"
+      - "23.jpg"
+      - "24.jpg"
+    price: 29
+    vat: 4.83
+    stock: 100
+    isAvailable: True
+    isDefault: True
+11:
+  description: "Samsung Galaxy J3"
+  brand: "Samsung"
+  name: "Galaxy J3"
+  cameraResolution: 8
+  os: "Android"
+  screenSize: 5
+  rate: 4G
+  sar: 0.425
+  simCard: Micro-sim
+  isTactile: True
+  1:
+    memory: 8
+    memoryUnit: Go
+    colorName: "Noir"
+    colorThumbnail: "#2F2F2F"
+    pictures:
+      - "8.jpg"
+      - "9.jpg"
+      - "10.jpg"
+    price: 159
+    vat: 26.5
+    stock: 100
+    isAvailable: True
+    isDefault: True
+  2:
+    memory: 8
+    memoryUnit: Go
+    colorName: "Or"
+    colorThumbnail: "#C9B8A6"
+    pictures:
+      - "8.jpg"
+      - "9.jpg"
+      - "10.jpg"
+    price: 159
+    vat: 26.5
+    stock: 100
+    isAvailable: True
+    isDefault: True

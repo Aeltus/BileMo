@@ -7,7 +7,7 @@
  */
 namespace CustomerBundle\Entity;
 
-use AppBundle\Entity\UserTrait;
+use AppBundle\Model\Entity\UserTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Customer

@@ -7,15 +7,48 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+
+/**
+ *
+ * @ORM\Table(name="picture")
+ * @ORM\Entity(repositoryClass="BileMo\AppBundle\Repository\PictureRepository")
+ *
+ * @ExclusionPolicy("all")
+ */
 class Picture
 {
 
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="url", type="string", nullable=false, unique=true)
+     *
+     * @Expose
+     */
     private $url;
 
+    /**
+     * @ORM\Column(name="alt", type="string", nullable=false, unique=false, length=100)
+     *
+     * @Expose
+     */
     private $alt;
 
+    /**
+     * @ORM\Column(name="is_default", type="boolean", nullable=false)
+     *
+     * @Expose
+     */
     private $isDefault = False;
 
     /**
@@ -48,6 +81,14 @@ class Picture
     }
 
     /**
+     * @return mixed
+     */
+    public function getParticularProduct()
+    {
+        return $this->particularProduct;
+    }
+
+    /**
      * @param mixed $id
      */
     public function setId($id)
@@ -77,6 +118,14 @@ class Picture
     public function setIsDefault($isDefault)
     {
         $this->isDefault = $isDefault;
+    }
+
+    /**
+     * @param mixed $particularProduct
+     */
+    public function setParticularProduct(ParticularProduct $particularProduct)
+    {
+        $this->particularProduct = $particularProduct;
     }
 
 }

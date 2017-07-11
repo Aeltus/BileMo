@@ -1,10 +1,10 @@
 customer:
-    resource: "@CustomerBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@CustomerBundle/Controller/"
+    prefix:   annotation
 
 consumer:
-    resource: "@ConsumerBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@ConsumerBundle/Controller/"
+    prefix:   annotation
 
 app:
     resource: '@AppBundle/Controller/'

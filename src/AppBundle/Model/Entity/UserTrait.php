@@ -5,7 +5,7 @@
  * Date: 26/06/17
  * Time: 18:53
  */
-namespace AppBundle\Entity;
+namespace AppBundle\Model\Entity;
 
 Trait UserTrait
 {

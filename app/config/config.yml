@@ -20,7 +20,8 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    serializer:
+      enabled: true
     templating:
         engines: ['twig']
     default_locale: '%locale%'
@@ -35,6 +36,10 @@ framework:
     assets: ~
     php_errors:
         log: true
+
+sensio_framework_extra:
+    view: { annotations: true }
+    request: { converters: true }
 
 # Twig Configuration
 twig:
@@ -76,5 +81,10 @@ fos_rest:
         enabled: true
     view:
         formats: { json: true, xml: false, rss: false }
+        view_response_listener: true
     serializer:
         serialize_null: true
+    format_listener:
+        rules:
+            - { path: '^/', priorities: ['json'], fallback_format: 'json' }
+    param_fetcher_listener: force

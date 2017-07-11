@@ -10,38 +10,101 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use AppBundle\Entity\Picture;
 use AppBundle\Entity\Feature;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ *
+ * @ORM\Table(name="particular_product")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ParticularProductRepository")
+ *
+ */
 class ParticularProduct extends Product
 {
-    private $id;
-
+    /**
+     * @ORM\Column(name="memory", type="integer", nullable=false)
+     */
     private $memory;
 
+    /**
+     * @ORM\Column(name="memory_unit", type="string", nullable=false, length=10)
+     *
+     */
     private $memoryUnit;
 
+    /**
+     * @ORM\Column(name="color_name", type="string", nullable=false, length=100)
+     *
+     */
     private $colorName;
 
+    /**
+     * @ORM\Column(name="color_thumbnail", type="string", nullable=false, length=7)
+     *
+     */
     private $colorThumbnail;
 
-    private $pictures = [];
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Picture", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true)
+     *
+     */
+    private $pictures;
 
-    private $features = [];
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Feature", mappedBy="particularProduct", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true)
+     *
+     */
+    private $features;
 
+    /**
+     * @ORM\Column(name="price", type="float", nullable=false)
+     *
+     */
     private $price;
 
+    /**
+     * @ORM\Column(name="vat", type="float", nullable=false)
+     *
+     */
     private $vat;
 
+    /**
+     * @ORM\Column(name="stock", type="integer", nullable=false)
+     *
+     */
     private $stock;
 
+    /**
+     * @ORM\Column(name="is_available", type="boolean", nullable=false)
+     *
+     */
     private $isAvailable = false;
 
+    /**
+     * @ORM\Column(name="availabitity_date", type="datetime", nullable=false)
+     *
+     */
     private $availabilityDate;
 
+    /**
+     * @ORM\Column(name="is_default", type="boolean", nullable=false)
+     *
+     */
     private $isDefault = False;
 
-    public function getId()
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product", inversedBy="linked")
+     *
+     */
+    private $product;
+
+    public function __construct()
     {
-        return $this->id;
+        parent::__construct();
+        $this->availabilityDate = new \DateTime();
+        $this->pictures = new ArrayCollection();
+        $this->features = new ArrayCollection();
     }
 
     /**
@@ -129,14 +192,17 @@ class ParticularProduct extends Product
         return $this->availabilityDate;
     }
 
-    public function setId($id)
-    {
-        $this->id=$id;
-    }
-
     public function isDefault()
     {
         return $this->isDefault;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 
     /**
@@ -242,6 +308,127 @@ class ParticularProduct extends Product
     public function removeFeature(Feature $feature)
     {
         $this->features->removeElement($feature);
+    }
+
+    /**
+     * @param mixed $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
+    
+    /*===============
+    Parents Getters and Setters ==================*/
+    
+    public function getId()
+    {
+        return parent::getId();
+    }
+    
+    public function getName()
+    {
+        return parent::getName();
+    }
+    
+    public function getDescription()
+    {
+        return parent::getDescription();
+    }
+    
+    public function getBrand()
+    {
+        return parent::getBrand();
+    }
+    
+    public function getCameraResolution()
+    {
+        return parent::getCameraResolution();
+    }
+    
+    public function getScreenSize()
+    {
+        return parent::getScreenSize();
+    }
+    
+    public function getRate()
+    {
+        return parent::getRate();
+    }
+    
+    public function getSar()
+    {
+        return parent::getSar();
+    }
+    
+    public function getSimCard()
+    {
+        return parent::getSimCard();
+    }
+    
+    public function getOs()
+    {
+        return parent::getOs();
+    }
+    
+    public function isTactile()
+    {
+        return parent::isTactile();
+    }
+
+    public function setId($id)
+    {
+        parent::setId($id);
+    }
+
+    public function setName($name)
+    {
+        parent::setName($name);
+    }
+    
+    public function setDescription($description)
+    {
+        parent::setDescription($description);
+    }
+    
+    public function setBrand($brand)
+    {
+        parent::setBrand($brand);
+    }
+    
+    public function setCameraResolution($cameraResolution)
+    {
+        parent::setCameraResolution($cameraResolution);
+    }
+    
+    public function setOs($os)
+    {
+        parent::setOs($os);
+    }
+    
+    public function setScreenSize($screenSize)
+    {
+        parent::setScreenSize($screenSize);
+    }
+    
+    public function setRate($rate)
+    {
+        parent::setRate($rate);
+    }
+    
+    public function setSar($sar)
+    {
+        parent::setSar($sar);
+    }
+    
+    public function setSimCard($simCard)
+    {
+        parent::setSimCard($simCard);
+    }
+    
+    public function setIsTactile($isTactile)
+    {
+        parent::setIsTactile($isTactile);
     }
 
 }
