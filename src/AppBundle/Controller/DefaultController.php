@@ -7,8 +7,6 @@ use AppBundle\Entity\Product;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use AppBundle\Representation\Products;
-use AppBundle\Representation\ParticularProducts;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Hateoas\Configuration\Route;
 use Hateoas\Representation\Factory\PagerfantaFactory;
