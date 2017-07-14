@@ -9,22 +9,70 @@ namespace CustomerBundle\Entity;
 
 use AppBundle\Model\Entity\UserTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use ConsumerBundle\Entity\Consumer;
+use AppBundle\Entity\Address;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
+/**
+ * @ORM\Table(name="customer")
+ * @ORM\Entity(repositoryClass="CustomerBundle\Repository\CustomerRepository")
+ *
+ * @ExclusionPolicy("all")
+ */
 class Customer
 {
     use UserTrait;
 
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="password", type="string", nullable=false, length=100)
+     *
+     * @Expose
+     */
     private $password;
 
+    /**
+     * @ORM\Column(name="salt", type="string", nullable=false, length=100)
+     *
+     * @Expose
+     */
     private $salt;
 
+    /**
+     * @ORM\Column(name="is_checked", type="boolean", nullable=false)
+     *
+     * @Expose
+     */
     private $isChecked;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Address", mappedBy="customerAddress", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $deliveryAddresses;
 
+    /**
+     * @ORM\OneToOne(targetEntity="ConsumerBundle\Entity\Consumer")
+     *
+     * @Expose
+     */
     private $consumer;
+
+    public function __construct()
+    {
+        $this->deliveryAddresses = new ArrayCollection();
+    }
 
     /**
      * @return mixed

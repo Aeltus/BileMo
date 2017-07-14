@@ -9,18 +9,53 @@ namespace AppBundle\Model\Entity;
 
 Trait UserTrait
 {
+    /**
+     * @ORM\Column(name="name", type="string", nullable=false, length=100)
+     *
+     * @Expose
+     */
     private $name;
 
+    /**
+     * @ORM\Column(name="surname", type="string", nullable=false, length=100)
+     *
+     * @Expose
+     */
     private $surname;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Address")
+     *
+     * @Expose
+     */
     private $billingAddress;
 
+    /**
+     * @ORM\Column(name="phone", type="string", nullable=true, length=10)
+     *
+     * @Expose
+     */
     private $phone = NULL;
 
+    /**
+     * @ORM\Column(name="cell_phone", type="string", nullable=true, length=10)
+     *
+     * @Expose
+     */
     private $cellPhone = NULL;
 
+    /**
+     * @ORM\Column(name="mail", type="string", nullable=false, length=100)
+     *
+     * @Expose
+     */
     private $mail;
 
+    /**
+     * @ORM\Column(name="is_available", type="boolean", nullable=false)
+     *
+     * @Expose
+     */
     private $isAvailable = True;
 
     /**

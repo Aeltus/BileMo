@@ -7,24 +7,83 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+
+/**
+ * @ORM\Table(name="address")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AddressRepository")
+ *
+ * @ExclusionPolicy("all")
+ */
 class Address
 {
 
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="address1", type="string", nullable=false, length=100)
+     *
+     * @Expose
+     */
     private $address1;
 
+    /**
+     * @ORM\Column(name="address2", type="string", nullable=true, length=100)
+     *
+     * @Expose
+     */
     private $address2;
 
+    /**
+     * @ORM\Column(name="address3", type="string", nullable=true, length=100)
+     *
+     * @Expose
+     */
     private $address3;
 
+    /**
+     * @ORM\Column(name="zip_code", type="integer", nullable=false)
+     *
+     * @Expose
+     */
     private $zipCode;
 
+    /**
+     * @ORM\Column(name="city", type="string", nullable=false, length=40)
+     *
+     * @Expose
+     */
     private $city;
 
+    /**
+     * @ORM\Column(name="is_available", type="boolean", nullable=false)
+     *
+     * @Expose
+     */
     private $isAvailable;
 
+    /**
+     * @ORM\Column(name="is_default", type="boolean", nullable=false)
+     *
+     * @Expose
+     */
     private $isDefault;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CustomerBundle\Entity\Customer", inversedBy="deliveryAddresses")
+     *
+     */
+    private $customerAddress;
 
     /**
      * @return mixed
@@ -82,6 +141,14 @@ class Address
     public function isDefault()
     {
         return $this->isDefault;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomerAddress()
+    {
+        return $this->customerAddress;
     }
 
     /**
@@ -146,6 +213,14 @@ class Address
     public function setIsDefault($isDefault)
     {
         $this->isDefault = $isDefault;
+    }
+
+    /**
+     * @param mixed $customerAddress
+     */
+    public function setCustomerAddress($customerAddress)
+    {
+        $this->customerAddress = $customerAddress;
     }
 
 }
