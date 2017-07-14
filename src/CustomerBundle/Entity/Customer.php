@@ -63,7 +63,7 @@ class Customer
     private $deliveryAddresses;
 
     /**
-     * @ORM\OneToOne(targetEntity="ConsumerBundle\Entity\Consumer")
+     * @ORM\ManyToOne(targetEntity="ConsumerBundle\Entity\Consumer")
      *
      * @Expose
      */

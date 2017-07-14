@@ -52,14 +52,7 @@ class Address
     private $address3;
 
     /**
-     * @ORM\Column(name="zip_code", type="integer", nullable=false)
-     *
-     * @Expose
-     */
-    private $zipCode;
-
-    /**
-     * @ORM\Column(name="city", type="string", nullable=false, length=40)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\City")
      *
      * @Expose
      */
@@ -120,14 +113,6 @@ class Address
     /**
      * @return mixed
      */
-    public function getZipCode()
-    {
-        return $this->zipCode;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCity()
     {
         return $this->city;
@@ -181,14 +166,6 @@ class Address
     public function setAddress3($address3)
     {
         $this->address3 = $address3;
-    }
-
-    /**
-     * @param mixed $zipCode
-     */
-    public function setZipCode($zipCode)
-    {
-        $this->zipCode = $zipCode;
     }
 
     /**

@@ -7,12 +7,44 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+
+/**
+ * @ORM\Table(name="city")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CityRepository")
+ *
+ * @ExclusionPolicy("all")
+ */
 class City
 {
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="name", type="string", nullable=false, unique=true)
+     *
+     * @Expose
+     */
     private $name;
 
+    /**
+     * @ORM\Column(name="zip_code", type="string", nullable=false, unique=true, length=5)
+     *
+     * @Expose
+     */
+    private $zipCode;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $country;
 
     /**
@@ -29,6 +61,14 @@ class City
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
     }
 
     /**
@@ -61,5 +101,13 @@ class City
     public function setCountry(Country $country)
     {
         $this->country = $country;
+    }
+
+    /**
+     * @param mixed $zipCode
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
     }
 }

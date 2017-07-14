@@ -7,6 +7,12 @@
  */
 namespace AppBundle\Model\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use AppBundle\Entity\Address;
+
 Trait UserTrait
 {
     /**
@@ -31,21 +37,21 @@ Trait UserTrait
     private $billingAddress;
 
     /**
-     * @ORM\Column(name="phone", type="string", nullable=true, length=10)
+     * @ORM\Column(name="phone", type="string", nullable=true, length=10, unique=true)
      *
      * @Expose
      */
     private $phone = NULL;
 
     /**
-     * @ORM\Column(name="cell_phone", type="string", nullable=true, length=10)
+     * @ORM\Column(name="cell_phone", type="string", nullable=true, length=10, unique=true)
      *
      * @Expose
      */
     private $cellPhone = NULL;
 
     /**
-     * @ORM\Column(name="mail", type="string", nullable=false, length=100)
+     * @ORM\Column(name="mail", type="string", nullable=false, length=100, unique=true)
      *
      * @Expose
      */
