@@ -101,6 +101,7 @@ class LoadCustomerData extends AbstractFixture implements OrderedFixtureInterfac
                     $deliveryAdress->setCity($customerData['city']);
                     $deliveryAdress->setIsAvailable($customerData['isAvailable']);
                     $deliveryAdress->setIsDefault($customerData['isDefault']);
+                    $deliveryAdress->setCustomerAddress($customerFixtures);
                     $customerFixtures->addDeliveryAddress($deliveryAdress);
                 }else {
                     $method = 'set'.ucfirst($customerDataName);

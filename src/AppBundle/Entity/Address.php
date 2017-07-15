@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="address")
@@ -33,12 +34,29 @@ class Address
     /**
      * @ORM\Column(name="address1", type="string", nullable=false, length=100)
      *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
+     *
      * @Expose
      */
     private $address1;
 
     /**
      * @ORM\Column(name="address2", type="string", nullable=true, length=100)
+     *
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
      *
      * @Expose
      */
@@ -47,12 +65,22 @@ class Address
     /**
      * @ORM\Column(name="address3", type="string", nullable=true, length=100)
      *
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
+     *
      * @Expose
      */
     private $address3;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\City")
+     *
+     * @Assert\Valid
      *
      * @Expose
      */
@@ -61,6 +89,9 @@ class Address
     /**
      * @ORM\Column(name="is_available", type="boolean", nullable=false)
      *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("bool", message="Ce champ attend un booleen")
+     *
      * @Expose
      */
     private $isAvailable;
@@ -68,13 +99,17 @@ class Address
     /**
      * @ORM\Column(name="is_default", type="boolean", nullable=false)
      *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("bool", message="Ce champ attend un booleen")
+     *
      * @Expose
      */
     private $isDefault;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CustomerBundle\Entity\Customer", inversedBy="deliveryAddresses")
+     * @ORM\ManyToOne(targetEntity="CustomerBundle\Entity\Customer", inversedBy="deliveryAddresses" , cascade={"persist"})
      *
+     * @Expose
      */
     private $customerAddress;
 

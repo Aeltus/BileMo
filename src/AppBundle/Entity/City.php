@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="city")
@@ -24,11 +25,22 @@ class City
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
      */
     private $id;
 
     /**
      * @ORM\Column(name="name", type="string", nullable=false, unique=true)
+     *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("alpha", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
      *
      * @Expose
      */
@@ -37,6 +49,15 @@ class City
     /**
      * @ORM\Column(name="zip_code", type="string", nullable=false, unique=true, length=5)
      *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 5,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
+     *
      * @Expose
      */
     private $zipCode;
@@ -44,6 +65,10 @@ class City
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * @Assert\Valid
+     *
+     * @Expose
      */
     private $country;
 

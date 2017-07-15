@@ -49,7 +49,7 @@ class Consumer
     private $paymentsDelay;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Brand", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Brand", orphanRemoval=true, cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      *
      * @Expose

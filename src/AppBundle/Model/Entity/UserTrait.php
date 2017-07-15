@@ -12,11 +12,15 @@ use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use AppBundle\Entity\Address;
+use Symfony\Component\Validator\Constraints as Assert;
 
 Trait UserTrait
 {
     /**
      * @ORM\Column(name="name", type="string", nullable=false, length=100)
+     *
+     * @Assert\NotBlank(message="Ce champ ne devrait pas être vide")
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
      *
      * @Expose
      */
@@ -25,26 +29,47 @@ Trait UserTrait
     /**
      * @ORM\Column(name="surname", type="string", nullable=false, length=100)
      *
+     * @Assert\NotBlank(message="Ce champ ne devrait pas être vide")
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     *
      * @Expose
      */
     private $surname;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Address")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Address", cascade={"persist"})
+     *
+     * @Assert\Valid
      *
      * @Expose
      */
     private $billingAddress;
 
     /**
-     * @ORM\Column(name="phone", type="string", nullable=true, length=10, unique=true)
+     * @ORM\Column(name="phone", type="string", nullable=true, length=12)
+     *
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 0,
+     *      max = 12,
+     *      minMessage = "Ce champ comporte {{ value }} et devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ comporte {{ value }} et devrait comporter au maximum {{ limit }} caractères."
+     * )
      *
      * @Expose
      */
     private $phone = NULL;
 
     /**
-     * @ORM\Column(name="cell_phone", type="string", nullable=true, length=10, unique=true)
+     * @ORM\Column(name="cell_phone", type="string", nullable=true, length=12)
+     *
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 0,
+     *      max = 12,
+     *      minMessage = "Ce champ comporte {{ value }} et devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ comporte {{ value }} et devrait comporter au maximum {{ limit }} caractères."
+     * )
      *
      * @Expose
      */
@@ -53,12 +78,20 @@ Trait UserTrait
     /**
      * @ORM\Column(name="mail", type="string", nullable=false, length=100, unique=true)
      *
+     * @Assert\Email(
+     *     message = "Cet Email : '{{ value }}' n\'est pas un email valide.",
+     *     checkMX = true
+     * )
+     *
      * @Expose
      */
     private $mail;
 
     /**
      * @ORM\Column(name="is_available", type="boolean", nullable=false)
+     *
+     * @Assert\NotBlank(message="Ce champ ne devrait pas être vide")
+     * @Assert\Type("bool", message="Ce champ attend un booleen")
      *
      * @Expose
      */

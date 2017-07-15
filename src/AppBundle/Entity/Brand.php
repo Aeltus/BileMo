@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  *
@@ -32,6 +33,15 @@ class Brand
 
     /**
      * @ORM\Column(name="name", type="string", nullable=false, unique=true)
+     *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Range(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
      *
      * @Expose
      */
