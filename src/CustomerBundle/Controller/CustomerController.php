@@ -74,7 +74,8 @@ class CustomerController extends FOSRestController
     /**
      * @Rest\Get(
      *     path = "/customers/{id}",
-     *     name = "customers_customers_show_one"
+     *     name = "customers_customers_show_one",
+     *     requirements = {"id"="\d+"}
      * )
      * @Rest\View(
      *     statusCode = 200
@@ -109,8 +110,6 @@ class CustomerController extends FOSRestController
 
         $em = $this->getDoctrine()->getManager();
         $consumerRepo = $em->getRepository('ConsumerBundle:Consumer');
-        $cityRepo = $em->getRepository('AppBundle:City');
-        $countryRepo = $em->getRepository('AppBundle:Country');
         $customerRepo = $em->getRepository('CustomerBundle:Customer');
 
         if($customerRepo->findOneBy(['mail' => $customer->getMail()])){
@@ -124,36 +123,14 @@ class CustomerController extends FOSRestController
         /*
          * Checking for Addresses validity
          */
+        $addressChecker = $this->container->get('address_checker');
 
         foreach($customer->getDeliveryAddresses() as $deliveryAddress)
         {
-            if ($country = $countryRepo->findOneBy(['name' => $deliveryAddress->getCity()->getCountry()->getName()])){
-                $deliveryAddress->getCity()->setCountry($country);
-            } else {
-                $country = $deliveryAddress->getCity()->getCountry();
-                $em->persist($country);
-            }
+            $addressChecker->check($deliveryAddress, $em);
 
-            if ($city = $cityRepo->findOneBy(['name' => $deliveryAddress->getCity()->getName()])){
-                $deliveryAddress->setCity($city);
-            } else {
-                $city = $deliveryAddress->getCity();
-                $em->persist($city);
-            }
         }
-        if ($country = $countryRepo->findOneBy(['name' => $customer->getBillingAddress()->getCity()->getCountry()->getName()])){
-            $customer->getBillingAddress()->getCity()->setCountry($country);
-        } else {
-            $country = $customer->getBillingAddress()->getCity()->getCountry();
-            $em->persist($country);
-        }
-
-        if ($city = $cityRepo->findOneBy(['name' => $customer->getBillingAddress()->getCity()->getName()])){
-            $customer->getBillingAddress()->setCity($city);
-        } else {
-            $city = $customer->getBillingAddress()->getCity();
-            $em->persist($city);
-        }
+        $addressChecker->check($customer->getBillingAddress(), $em);
 
         $customer->setConsumer($consumer);
 
@@ -161,5 +138,67 @@ class CustomerController extends FOSRestController
         $em->flush();
 
         return $customer;
+    }
+
+    /**
+     * @Rest\Put(
+     *     path = "/customers/{id}",
+     *     name = "customers_customers_update",
+     *     requirements = {"id"="\d+"}
+     * )
+     * @Rest\View(StatusCode = 200)
+     * @ParamConverter("newCustomer", converter="fos_rest.request_body")
+     */
+    public function updateAction(Customer $customer, Customer $newCustomer, ConstraintViolationList $violations)
+    {
+        /*
+         * Checking for Violations
+         */
+        if (count($violations)) {
+            $message = 'The JSON sent contains invalid data. Here are the errors you need to correct: ';
+            foreach ($violations as $violation) {
+                $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
+            }
+
+            throw new BadRequestHttpException($violations);
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $consumerRepo = $em->getRepository('ConsumerBundle:Consumer');
+
+        if (!$consumer = $consumerRepo->findOneBy(['id' => $customer->getConsumerKey()])){
+            throw new BadRequestHttpException('Ce vendeur n\'existe pas.');
+        }
+
+        $customer->setPassword($newCustomer->getPassword());
+        $customer->setSalt($newCustomer->getSalt());
+        $customer->setIsChecked($newCustomer->IsChecked());
+        $customer->setName($newCustomer->getName());
+        $customer->setSurname($newCustomer->getSurname());
+        $customer->setPhone($newCustomer->getPhone());
+        $customer->setCellPhone($newCustomer->getCellPhone());
+        $customer->setMail($newCustomer->getMail());
+        $customer->setIsAvailable($newCustomer->IsAvailable());
+
+        $em->flush();
+
+        return $customer;
+    }
+
+    /**
+     * @Rest\View(StatusCode = 204)
+     * @Rest\Delete(
+     *     path = "/customers/{id}",
+     *     name = "customers_customers_delete",
+     *     requirements = {"id"="\d+"}
+     * )
+     */
+    public function deleteAction(Customer $customer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($customer);
+        $em->flush();
+
+        return;
     }
 }
