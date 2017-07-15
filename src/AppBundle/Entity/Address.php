@@ -107,7 +107,7 @@ class Address
     private $isDefault;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CustomerBundle\Entity\Customer", inversedBy="deliveryAddresses" , cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="CustomerBundle\Entity\Customer", inversedBy="deliveryAddresses")
      *
      * @Expose
      */

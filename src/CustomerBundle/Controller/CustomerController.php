@@ -128,6 +128,7 @@ class CustomerController extends FOSRestController
         foreach($customer->getDeliveryAddresses() as $deliveryAddress)
         {
             $addressChecker->check($deliveryAddress, $em);
+            $deliveryAddress->setCustomerAddress($customer);
 
         }
         $addressChecker->check($customer->getBillingAddress(), $em);
