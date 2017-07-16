@@ -7,24 +7,111 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Table(name="address")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AddressRepository")
+ *
+ * @ExclusionPolicy("all")
+ */
 class Address
 {
 
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
+     */
     private $id;
 
+    /**
+     * @ORM\Column(name="address1", type="string", nullable=false, length=100)
+     *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
+     *
+     * @Expose
+     */
     private $address1;
 
+    /**
+     * @ORM\Column(name="address2", type="string", nullable=true, length=100)
+     *
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
+     *
+     * @Expose
+     */
     private $address2;
 
+    /**
+     * @ORM\Column(name="address3", type="string", nullable=true, length=100)
+     *
+     * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 100,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
+     *
+     * @Expose
+     */
     private $address3;
 
-    private $zipCode;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\City")
+     *
+     * @Assert\Valid
+     *
+     * @Expose
+     */
     private $city;
 
+    /**
+     * @ORM\Column(name="is_available", type="boolean", nullable=false)
+     *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("bool", message="Ce champ attend un booleen")
+     *
+     * @Expose
+     */
     private $isAvailable;
 
+    /**
+     * @ORM\Column(name="is_default", type="boolean", nullable=false)
+     *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("bool", message="Ce champ attend un booleen")
+     *
+     * @Expose
+     */
     private $isDefault;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CustomerBundle\Entity\Customer", inversedBy="deliveryAddresses")
+     *
+     * @Expose
+     */
+    private $customerAddress;
 
     /**
      * @return mixed
@@ -61,14 +148,6 @@ class Address
     /**
      * @return mixed
      */
-    public function getZipCode()
-    {
-        return $this->zipCode;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCity()
     {
         return $this->city;
@@ -82,6 +161,14 @@ class Address
     public function isDefault()
     {
         return $this->isDefault;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomerAddress()
+    {
+        return $this->customerAddress;
     }
 
     /**
@@ -117,14 +204,6 @@ class Address
     }
 
     /**
-     * @param mixed $zipCode
-     */
-    public function setZipCode($zipCode)
-    {
-        $this->zipCode = $zipCode;
-    }
-
-    /**
      * @param mixed $city
      */
     public function setCity(City $city)
@@ -146,6 +225,14 @@ class Address
     public function setIsDefault($isDefault)
     {
         $this->isDefault = $isDefault;
+    }
+
+    /**
+     * @param mixed $customerAddress
+     */
+    public function setCustomerAddress($customerAddress)
+    {
+        $this->customerAddress = $customerAddress;
     }
 
 }

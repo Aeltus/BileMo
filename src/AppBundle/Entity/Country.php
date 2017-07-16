@@ -7,11 +7,44 @@
  */
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Table(name="country")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CountryRepository")
+ *
+ * @ExclusionPolicy("all")
+ */
 class Country
 {
+    /**
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @Expose
+     */
     private $id;
 
-    private $country;
+    /**
+     * @ORM\Column(name="name", type="string", nullable=false, unique=true)
+     *
+     * @Assert\NotBlank(message="ce champ doit être renseigné")
+     * @Assert\Type("alpha", message="Ce champ attend une chaine de caractères")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "Ce champ devrait comporter au minimum {{ limit }} caractères.",
+     *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
+     * )
+     *
+     * @Expose
+     */
+    private $name;
 
     /**
      * @return mixed
@@ -24,9 +57,9 @@ class Country
     /**
      * @return mixed
      */
-    public function getCountry()
+    public function getName()
     {
-        return $this->country;
+        return $this->name;
     }
 
     /**
@@ -40,9 +73,9 @@ class Country
     /**
      * @param mixed $country
      */
-    public function setCountry($country)
+    public function setName($name)
     {
-        $this->country = $country;
+        $this->name = $name;
     }
 
 }
