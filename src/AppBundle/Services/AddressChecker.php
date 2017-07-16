@@ -27,5 +27,6 @@ class AddressChecker
             $city = $address->getCity();
             $em->persist($city);
         }
+        $em->flush();
     }
 }

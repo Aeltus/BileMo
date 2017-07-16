@@ -85,7 +85,7 @@ class Customer
     private $isChecked;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Address", mappedBy="customerAddress", orphanRemoval=true, cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Address", mappedBy="customerAddress", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      *
      * @Assert\Valid
@@ -223,6 +223,11 @@ class Customer
     public function setConsumerKey($consumerKey)
     {
         $this->consumerKey = $consumerKey;
+    }
+
+    public function eraseBillingAddress()
+    {
+        $this->billingAddress = NULL;
     }
 
 }
