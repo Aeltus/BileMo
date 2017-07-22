@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new CustomerBundle\CustomerBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -17,10 +17,20 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Nelmio\ApiDocBundle\Annotation as Doc;
 
 class CustomerController extends FOSRestController
 {
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Get all customers",
+     *     statusCodes={
+     *          200="Returned when ok"
+     *     }
+     * )
+     *
      * @Rest\Get(
      *     path = "/customers",
      *     name = "customers_customers_show"
@@ -86,6 +96,24 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Get a customer identified by {id}",
+     *     statusCodes={
+     *          200="Returned when ok",
+     *          404="Returned when customer is not found"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The customer unique identifier."
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Get(
      *     path = "/customers/{id}",
      *     name = "customers_customers_show_one",
@@ -101,6 +129,16 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Add a customer. Accept a customer entity in JSON format, in body.",
+     *     statusCodes={
+     *          201="Returned when ok",
+     *          400="Returned when JSON is not valid"
+     *     }
+     * )
+     *
      * @Rest\Post(
      *     path = "/customers",
      *     name = "customers_customers_create"
@@ -156,6 +194,25 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Update a customer identified by {id}. Accept a customer entity in JSON format, in body.",
+     *     statusCodes={
+     *          200="Returned when ok",
+     *          400="Returned when JSON is not valid",
+     *          404="Returned when customer is not found"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The customer unique identifier."
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Put(
      *     path = "/customers/{id}",
      *     name = "customers_customers_update",
@@ -201,6 +258,24 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Delete a customer identified by {id}. (The customer is not completely deleted, his property isAvailable is set to False)",
+     *     statusCodes={
+     *          204="Returned when ok",
+     *          404="Returned when customer is not found"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The customer unique identifier."
+     *         }
+     *     }
+     * )
+     *
      * @Rest\View(StatusCode = 204)
      * @Rest\Delete(
      *     path = "/customers/{id}",

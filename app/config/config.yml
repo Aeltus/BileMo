@@ -98,3 +98,8 @@ fos_rest:
             media_type: # Accept header
                 enabled: true
                 regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+
+nelmio_api_doc:
+  sandbox:
+    request_format:
+        method: accept_header
