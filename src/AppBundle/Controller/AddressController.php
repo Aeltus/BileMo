@@ -25,14 +25,14 @@ class AddressController extends FOSRestController
     /**
      * @Rest\View(StatusCode = 204)
      * @Rest\Delete(
-     *     path = "/address/{address}/{customer}",
+     *     path = "/address/{address}",
      *     name = "app_address_delete",
-     *     requirements = {"address"="\d+", "customer"="\d+"}
+     *     requirements = {"address"="\d+"}
      * )
      */
-    public function deleteAction(Address $address, Customer $customer)
+    public function deleteAction(Address $address)
     {
-        $customer->removeDeliveryAddress($address);
+        $address->setIsAvailable(false);
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
@@ -54,7 +54,7 @@ class AddressController extends FOSRestController
          * Checking for Violations
          */
         if (count($violations)) {
-            $message = 'The JSON sent contains invalid data. Here are the errors you need to correct: ';
+            $message = 'Le JSON envoyé est incorrect, vous devez envoyer un format JSON valide : ';
             foreach ($violations as $violation) {
                 $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
             }
@@ -91,7 +91,7 @@ class AddressController extends FOSRestController
          * Checking for Violations
          */
         if (count($violations)) {
-            $message = 'The JSON sent contains invalid data. Here are the errors you need to correct: ';
+            $message = 'Le JSON envoyé est incorrect, vous devez envoyer un format JSON valide : ';
             foreach ($violations as $violation) {
                 $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
             }
@@ -116,5 +116,6 @@ class AddressController extends FOSRestController
 
         return $address;
     }
+
 }
 

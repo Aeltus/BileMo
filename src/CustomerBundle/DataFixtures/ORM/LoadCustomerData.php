@@ -73,6 +73,34 @@ class LoadCustomerData extends AbstractFixture implements OrderedFixtureInterfac
                 "salt" => "my_encoded_salt",
                 "isChecked" => true,
                 "consumer" => "Doe Compagny"
+            ],
+            3 => [
+                "name" => "Dufour",
+                "surname" => "Antoine",
+                "billingAddress" => [
+                    "address1" => "1 rue de la mairie",
+                    "address2" => NULL,
+                    "address3" => NULL,
+                    "city" => $this->getReference('Mirepoix'),
+                    "isAvailable" => true,
+                    "isDefault" => true
+                ],
+                "phone" => "0468000006",
+                "cellPhone" => NULL,
+                "mail" => "antoine.dufour@monmail.com",
+                "deliveryAddress" => [
+                    "address1" => "1 rue de la plage",
+                    "address2" => NULL,
+                    "address3" => NULL,
+                    "city" => $this->getReference('Mirepoix'),
+                    "isAvailable" => true,
+                    "isDefault" => true
+                ],
+                "isAvailable" => false,
+                "password" => "my_encoded_password",
+                "salt" => "my_encoded_salt",
+                "isChecked" => true,
+                "consumer" => "Doe Compagny"
             ]
         ];
 

@@ -4,15 +4,21 @@ namespace CustomerBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class CustomerControllerTest extends WebTestCase
 {
 
     public function testCustomers()
     {
         $client = static::createClient();
-
         $crawler = $client->request('GET', '/customers');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/customers?limit=5&order=desc&page=1');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/customers?isAvailable=FALSE');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
@@ -20,7 +26,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/customers/1');
+        $crawler = $client->request('GET', '/customers/2');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
@@ -69,7 +75,7 @@ class DefaultControllerTest extends WebTestCase
     },
     "phone": "0468000050",
     "cell_phone": null,
-    "mail": "david50.danjard@monmail.com",
+    "mail": "david60.danjard@monmail.com",
     "is_available": true
 }';
 
@@ -130,7 +136,7 @@ class DefaultControllerTest extends WebTestCase
     },
     "phone": "0468000050",
     "cell_phone": null,
-    "mail": "david50.danjard@monmail.com",
+    "mail": "david60.danjard@monmail.com",
     "is_available": true
 }';
 
@@ -208,5 +214,19 @@ class DefaultControllerTest extends WebTestCase
         $crawler = $client->request('DELETE', '/customers/'.$customer['_embedded']['items'][0]['id']);
         $response = $client->getResponse();
         $this->assertEquals(204, $response->getStatusCode());
+
+        $kernel = static::createKernel();
+        $kernel->boot();
+        $em = $kernel->getContainer()
+                     ->get('doctrine')
+                     ->getManager()
+        ;
+        $repo = $em->getRepository('CustomerBundle:Customer');
+        $customerToDelete = $repo->findOneById($customer['_embedded']['items'][0]['id']);
+        $this->assertEquals(NULL, $em->remove($customerToDelete));
+
+        $em->flush();
+
     }
+
 }
