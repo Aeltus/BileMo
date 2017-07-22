@@ -19,6 +19,7 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/articles?brand=Apple');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
     }
 
     public function testProduct()

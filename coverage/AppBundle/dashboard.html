@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/david/www/bilemo/src/AppBundle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/nv.d3.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../js/html5shiv.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">/home/david/www/bilemo/src</a></li>
+        <li><a href="index.html">AppBundle</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Entity/Rate.php.html#22">Rate</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#22">Picture</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Os.php.html#22">Os</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#13">Order</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#22">Feature</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Brand.php.html#23">Brand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/SimCard.php.html#22">SimCard</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadSimCardsData.php.html#15">LoadSimCardsData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadRatesData.php.html#16">LoadRatesData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadProductsData.php.html#17">LoadProductsData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadPicturesData.php.html#16">LoadPicturesData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadOsData.php.html#16">LoadOsData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadCountryData.php.html#15">LoadCountryData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadCityData.php.html#15">LoadCityData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadBrandsData.php.html#16">LoadBrandsData</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#22">ParticularProduct</a></td><td class="text-right">1%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#67">Product</a></td><td class="text-right">11%</td></tr>
+       <tr><td><a href="Entity/Country.php.html#22">Country</a></td><td class="text-right">16%</td></tr>
+       <tr><td><a href="Entity/City.php.html#22">City</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Controller/DefaultController.php.html#16">DefaultController</a></td><td class="text-right">62%</td></tr>
+       <tr><td><a href="Model/Services/AddressChecker.php.html#10">AddressChecker</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controller/AddressController.php.html#23">AddressController</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Repository/AbstractRepository.php.html#15">AbstractRepository</a></td><td class="text-right">85%</td></tr>
+       <tr><td><a href="Entity/Address.php.html#22">Address</a></td><td class="text-right">87%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Entity/Product.php.html#67">Product</a></td><td class="text-right">569</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadProductsData.php.html#17">LoadProductsData</a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadPicturesData.php.html#16">LoadPicturesData</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadBrandsData.php.html#16">LoadBrandsData</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadOsData.php.html#16">LoadOsData</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadRatesData.php.html#16">LoadRatesData</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadSimCardsData.php.html#15">LoadSimCardsData</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/AddressController.php.html#23">AddressController</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Controller/DefaultController.php.html#16">DefaultController</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Services/AddressChecker.php.html#10">AddressChecker</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Repository/AbstractRepository.php.html#15">AbstractRepository</a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Model/Entity/UserTrait.php.html#175"><abbr title="UserTrait::setBillingAddress">setBillingAddress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#413"><abbr title="ParticularProduct::setCameraResolution">setCameraResolution</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#383"><abbr title="ParticularProduct::getOs">getOs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#388"><abbr title="ParticularProduct::isTactile">isTactile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#393"><abbr title="ParticularProduct::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#398"><abbr title="ParticularProduct::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#403"><abbr title="ParticularProduct::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#408"><abbr title="ParticularProduct::setBrand">setBrand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#418"><abbr title="ParticularProduct::setOs">setOs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#373"><abbr title="ParticularProduct::getSar">getSar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#423"><abbr title="ParticularProduct::setScreenSize">setScreenSize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#428"><abbr title="ParticularProduct::setRate">setRate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#433"><abbr title="ParticularProduct::setSar">setSar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#438"><abbr title="ParticularProduct::setSimCard">setSimCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#443"><abbr title="ParticularProduct::setIsTactile">setIsTactile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#60"><abbr title="Picture::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#68"><abbr title="Picture::getAlt">getAlt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#378"><abbr title="ParticularProduct::getSimCard">getSimCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#368"><abbr title="ParticularProduct::getRate">getRate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#81"><abbr title="Picture::isDafault">isDafault</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#307"><abbr title="ParticularProduct::addPicture">addPicture</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#257"><abbr title="ParticularProduct::setPrice">setPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#265"><abbr title="ParticularProduct::setVat">setVat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#273"><abbr title="ParticularProduct::setStock">setStock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#281"><abbr title="ParticularProduct::setIsAvailable">setIsAvailable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#289"><abbr title="ParticularProduct::setAvailabilityDate">setAvailabilityDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#297"><abbr title="ParticularProduct::setIsDefault">setIsDefault</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#302"><abbr title="ParticularProduct::decreaseStock">decreaseStock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#312"><abbr title="ParticularProduct::removePicture">removePicture</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#363"><abbr title="ParticularProduct::getScreenSize">getScreenSize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#317"><abbr title="ParticularProduct::addFeature">addFeature</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#322"><abbr title="ParticularProduct::removeFeature">removeFeature</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#330"><abbr title="ParticularProduct::setProduct">setProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#343"><abbr title="ParticularProduct::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#348"><abbr title="ParticularProduct::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#353"><abbr title="ParticularProduct::getBrand">getBrand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#358"><abbr title="ParticularProduct::getCameraResolution">getCameraResolution</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#76"><abbr title="Picture::getUrl">getUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#89"><abbr title="Picture::getParticularProduct">getParticularProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#233"><abbr title="ParticularProduct::setMemoryUnit">setMemoryUnit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#359"><abbr title="Product::removeLinked">removeLinked</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#309"><abbr title="Product::setOs">setOs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#317"><abbr title="Product::setScreenSize">setScreenSize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#325"><abbr title="Product::setRate">setRate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#333"><abbr title="Product::setSar">setSar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#341"><abbr title="Product::setSimCard">setSimCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#349"><abbr title="Product::setIsTactile">setIsTactile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#354"><abbr title="Product::addLinked">addLinked</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Rate.php.html#43"><abbr title="Rate::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#293"><abbr title="Product::setBrand">setBrand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Rate.php.html#51"><abbr title="Rate::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Rate.php.html#59"><abbr title="Rate::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Rate.php.html#67"><abbr title="Rate::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/SimCard.php.html#43"><abbr title="SimCard::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/SimCard.php.html#51"><abbr title="SimCard::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/SimCard.php.html#59"><abbr title="SimCard::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/SimCard.php.html#67"><abbr title="SimCard::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#301"><abbr title="Product::setCameraResolution">setCameraResolution</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#285"><abbr title="Product::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#97"><abbr title="Picture::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#197"><abbr title="Product::getBrand">getBrand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#105"><abbr title="Picture::setAlt">setAlt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#113"><abbr title="Picture::setUrl">setUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#121"><abbr title="Picture::setIsDefault">setIsDefault</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Picture.php.html#129"><abbr title="Picture::setParticularProduct">setParticularProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#165"><abbr title="Product::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#181"><abbr title="Product::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#189"><abbr title="Product::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#205"><abbr title="Product::getCameraResolution">getCameraResolution</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#277"><abbr title="Product::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#213"><abbr title="Product::getOs">getOs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#221"><abbr title="Product::getScreenSize">getScreenSize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#229"><abbr title="Product::getRate">getRate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#237"><abbr title="Product::getSar">getSar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#245"><abbr title="Product::getSimCard">getSimCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#253"><abbr title="Product::isTactile">isTactile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#269"><abbr title="Product::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#249"><abbr title="ParticularProduct::setColorThumbnail">setColorThumbnail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#241"><abbr title="ParticularProduct::setColorName">setColorName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#225"><abbr title="ParticularProduct::setMemory">setMemory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/City.php.html#122"><abbr title="City::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Brand.php.html#62"><abbr title="Brand::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Brand.php.html#70"><abbr title="Brand::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Brand.php.html#78"><abbr title="Brand::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/City.php.html#82"><abbr title="City::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/City.php.html#98"><abbr title="City::getZipCode">getZipCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/City.php.html#114"><abbr title="City::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/City.php.html#138"><abbr title="City::setZipCode">setZipCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Address.php.html#183"><abbr title="Address::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Country.php.html#54"><abbr title="Country::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Country.php.html#70"><abbr title="Country::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Country.php.html#78"><abbr title="Country::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#58"><abbr title="Feature::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#66"><abbr title="Feature::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#74"><abbr title="Feature::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#82"><abbr title="Feature::getParticularProduct">getParticularProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Brand.php.html#54"><abbr title="Brand::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Address.php.html#125"><abbr title="Address::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#106"><abbr title="Feature::setValue">setValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadOsData.php.html#18"><abbr title="LoadOsData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadBrandsData.php.html#18"><abbr title="LoadBrandsData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadBrandsData.php.html#33"><abbr title="LoadBrandsData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadCityData.php.html#17"><abbr title="LoadCityData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadCityData.php.html#37"><abbr title="LoadCityData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadCountryData.php.html#17"><abbr title="LoadCountryData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadCountryData.php.html#29"><abbr title="LoadCountryData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadOsData.php.html#33"><abbr title="LoadOsData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadSimCardsData.php.html#32"><abbr title="LoadSimCardsData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadPicturesData.php.html#18"><abbr title="LoadPicturesData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadPicturesData.php.html#51"><abbr title="LoadPicturesData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadProductsData.php.html#19"><abbr title="LoadProductsData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadProductsData.php.html#90"><abbr title="LoadProductsData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadRatesData.php.html#18"><abbr title="LoadRatesData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadRatesData.php.html#33"><abbr title="LoadRatesData::getOrder">getOrder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadSimCardsData.php.html#17"><abbr title="LoadSimCardsData::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#98"><abbr title="Feature::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#90"><abbr title="Feature::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Feature.php.html#114"><abbr title="Feature::setParticularProduct">setParticularProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#159"><abbr title="ParticularProduct::getPictures">getPictures</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Os.php.html#67"><abbr title="Os::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#116"><abbr title="ParticularProduct::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#127"><abbr title="ParticularProduct::getMemory">getMemory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#135"><abbr title="ParticularProduct::getMemoryUnit">getMemoryUnit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#143"><abbr title="ParticularProduct::getColorName">getColorName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#151"><abbr title="ParticularProduct::getColorThumbnail">getColorThumbnail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#167"><abbr title="ParticularProduct::getFeatures">getFeatures</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Os.php.html#51"><abbr title="Os::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#175"><abbr title="ParticularProduct::getPrice">getPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#183"><abbr title="ParticularProduct::getVat">getVat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#191"><abbr title="ParticularProduct::getStock">getStock</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#196"><abbr title="ParticularProduct::isAvailable">isAvailable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#204"><abbr title="ParticularProduct::getAvailabilityDate">getAvailabilityDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#209"><abbr title="ParticularProduct::isDefault">isDefault</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ParticularProduct.php.html#217"><abbr title="ParticularProduct::getProduct">getProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#35"><abbr title="Order::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Os.php.html#59"><abbr title="Os::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Os.php.html#43"><abbr title="Os::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#85"><abbr title="Order::isWaitingForConsumerPayment">isWaitingForConsumerPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#43"><abbr title="Order::getProducts">getProducts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#51"><abbr title="Order::getCustomer">getCustomer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#59"><abbr title="Order::getDeliveryAddress">getDeliveryAddress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#67"><abbr title="Order::getBillingAddress">getBillingAddress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#151"><abbr title="Order::removeProduct">removeProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#80"><abbr title="Order::isWaitingForCustomerPayement">isWaitingForCustomerPayement</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#75"><abbr title="Order::soldAt">soldAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#93"><abbr title="Order::setId">setId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#101"><abbr title="Order::setCustomer">setCustomer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#109"><abbr title="Order::setDeliveryAddress">setDeliveryAddress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#117"><abbr title="Order::setBillingAddress">setBillingAddress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#125"><abbr title="Order::setSoldAt">setSoldAt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#133"><abbr title="Order::setIsWaitingForConsumerPayment">setIsWaitingForConsumerPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#141"><abbr title="Order::setIsWaitingForCustomerPayment">setIsWaitingForCustomerPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Order.php.html#146"><abbr title="Order::addProduct">addProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/DefaultController.php.html#51"><abbr title="DefaultController::indexAction">indexAction</abbr></a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Controller/DefaultController.php.html#95"><abbr title="DefaultController::productDetailsAction">productDetailsAction</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controller/DefaultController.php.html#78"><abbr title="DefaultController::productAction">productAction</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Model/Services/AddressChecker.php.html#12"><abbr title="AddressChecker::Check">Check</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controller/AddressController.php.html#51"><abbr title="AddressController::createAction">createAction</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controller/AddressController.php.html#88"><abbr title="AddressController::updateAction">updateAction</abbr></a></td><td class="text-right">76%</td></tr>
+       <tr><td><a href="Repository/AbstractRepository.php.html#17"><abbr title="AbstractRepository::paginate">paginate</abbr></a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="DataFixtures/ORM/LoadProductsData.php.html#19"><abbr title="LoadProductsData::load">load</abbr></a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadPicturesData.php.html#18"><abbr title="LoadPicturesData::load">load</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadBrandsData.php.html#18"><abbr title="LoadBrandsData::load">load</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadOsData.php.html#18"><abbr title="LoadOsData::load">load</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadRatesData.php.html#18"><abbr title="LoadRatesData::load">load</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DataFixtures/ORM/LoadSimCardsData.php.html#17"><abbr title="LoadSimCardsData::load">load</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/AddressController.php.html#51"><abbr title="AddressController::createAction">createAction</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Model/Services/AddressChecker.php.html#12"><abbr title="AddressChecker::Check">Check</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controller/AddressController.php.html#88"><abbr title="AddressController::updateAction">updateAction</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controller/DefaultController.php.html#78"><abbr title="DefaultController::productAction">productAction</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/DefaultController.php.html#95"><abbr title="DefaultController::productDetailsAction">productDetailsAction</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/AbstractRepository.php.html#17"><abbr title="AbstractRepository::paginate">paginate</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.0</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.20-2</a> with <a href="https://xdebug.org/">Xdebug 2.5.1</a> and <a href="https://phpunit.de/">PHPUnit 5.4.6</a> at Sat Jul 22 19:40:42 UTC 2017.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../js/holder.min.js" type="text/javascript"></script>
+  <script src="../js/d3.min.js" type="text/javascript"></script>
+  <script src="../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([15,1,2,0,1,0,0,2,1,2,1,7], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([153,0,0,0,0,0,0,5,1,1,0,38], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"AppBundle.php.html#7\">AppBundle<\/a>"],[75.757575757576,7,"<a href=\"Controller\/AddressController.php.html#23\">AddressController<\/a>"],[62.5,5,"<a href=\"Controller\/DefaultController.php.html#16\">DefaultController<\/a>"],[0,3,"<a href=\"DataFixtures\/ORM\/LoadBrandsData.php.html#16\">LoadBrandsData<\/a>"],[0,2,"<a href=\"DataFixtures\/ORM\/LoadCityData.php.html#15\">LoadCityData<\/a>"],[0,2,"<a href=\"DataFixtures\/ORM\/LoadCountryData.php.html#15\">LoadCountryData<\/a>"],[0,3,"<a href=\"DataFixtures\/ORM\/LoadOsData.php.html#16\">LoadOsData<\/a>"],[0,7,"<a href=\"DataFixtures\/ORM\/LoadPicturesData.php.html#16\">LoadPicturesData<\/a>"],[0,15,"<a href=\"DataFixtures\/ORM\/LoadProductsData.php.html#17\">LoadProductsData<\/a>"],[0,3,"<a href=\"DataFixtures\/ORM\/LoadRatesData.php.html#16\">LoadRatesData<\/a>"],[0,3,"<a href=\"DataFixtures\/ORM\/LoadSimCardsData.php.html#15\">LoadSimCardsData<\/a>"],[87.5,16,"<a href=\"Entity\/Address.php.html#22\">Address<\/a>"],[0,4,"<a href=\"Entity\/Brand.php.html#23\">Brand<\/a>"],[33.333333333333,8,"<a href=\"Entity\/City.php.html#22\">City<\/a>"],[16.666666666667,4,"<a href=\"Entity\/Country.php.html#22\">Country<\/a>"],[0,8,"<a href=\"Entity\/Feature.php.html#22\">Feature<\/a>"],[0,17,"<a href=\"Entity\/Order.php.html#13\">Order<\/a>"],[0,4,"<a href=\"Entity\/Os.php.html#22\">Os<\/a>"],[1.2048192771084,52,"<a href=\"Entity\/ParticularProduct.php.html#22\">ParticularProduct<\/a>"],[0,10,"<a href=\"Entity\/Picture.php.html#22\">Picture<\/a>"],[11.627906976744,28,"<a href=\"Entity\/Product.php.html#67\">Product<\/a>"],[0,4,"<a href=\"Entity\/Rate.php.html#22\">Rate<\/a>"],[0,4,"<a href=\"Entity\/SimCard.php.html#22\">SimCard<\/a>"],[100,3,"<a href=\"EventListener\/CustomerDeletionListener.php.html#13\">CustomerDeletionListener<\/a>"],[66.666666666667,3,"<a href=\"Model\/Services\/AddressChecker.php.html#10\">AddressChecker<\/a>"],[85.714285714286,2,"<a href=\"Repository\/AbstractRepository.php.html#15\">AbstractRepository<\/a>"],[100,0,"<a href=\"Repository\/AddressRepository.php.html#12\">AddressRepository<\/a>"],[100,0,"<a href=\"Repository\/CityRepository.php.html#12\">CityRepository<\/a>"],[100,0,"<a href=\"Repository\/CountryRepository.php.html#12\">CountryRepository<\/a>"],[100,0,"<a href=\"Repository\/ParticularProductRepository.php.html#12\">ParticularProductRepository<\/a>"],[100,2,"<a href=\"Repository\/ProductRepository.php.html#12\">ProductRepository<\/a>"],[90.47619047619,14,"<a href=\"Model\/Entity\/UserTrait.php.html#17\">UserTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Controller\/AddressController.php.html#33\">AddressController::deleteAction<\/a>"],[66.666666666667,3,"<a href=\"Controller\/AddressController.php.html#51\">AddressController::createAction<\/a>"],[76.470588235294,3,"<a href=\"Controller\/AddressController.php.html#88\">AddressController::updateAction<\/a>"],[60,1,"<a href=\"Controller\/DefaultController.php.html#51\">DefaultController::indexAction<\/a>"],[66.666666666667,2,"<a href=\"Controller\/DefaultController.php.html#78\">DefaultController::productAction<\/a>"],[66.666666666667,2,"<a href=\"Controller\/DefaultController.php.html#95\">DefaultController::productDetailsAction<\/a>"],[0,2,"<a href=\"DataFixtures\/ORM\/LoadBrandsData.php.html#18\">LoadBrandsData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadBrandsData.php.html#33\">LoadBrandsData::getOrder<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadCityData.php.html#17\">LoadCityData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadCityData.php.html#37\">LoadCityData::getOrder<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadCountryData.php.html#17\">LoadCountryData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadCountryData.php.html#29\">LoadCountryData::getOrder<\/a>"],[0,2,"<a href=\"DataFixtures\/ORM\/LoadOsData.php.html#18\">LoadOsData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadOsData.php.html#33\">LoadOsData::getOrder<\/a>"],[0,6,"<a href=\"DataFixtures\/ORM\/LoadPicturesData.php.html#18\">LoadPicturesData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadPicturesData.php.html#51\">LoadPicturesData::getOrder<\/a>"],[0,14,"<a href=\"DataFixtures\/ORM\/LoadProductsData.php.html#19\">LoadProductsData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadProductsData.php.html#90\">LoadProductsData::getOrder<\/a>"],[0,2,"<a href=\"DataFixtures\/ORM\/LoadRatesData.php.html#18\">LoadRatesData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadRatesData.php.html#33\">LoadRatesData::getOrder<\/a>"],[0,2,"<a href=\"DataFixtures\/ORM\/LoadSimCardsData.php.html#17\">LoadSimCardsData::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ORM\/LoadSimCardsData.php.html#32\">LoadSimCardsData::getOrder<\/a>"],[0,1,"<a href=\"Entity\/Address.php.html#125\">Address::getId<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#133\">Address::getAddress1<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#141\">Address::getAddress2<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#149\">Address::getAddress3<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#157\">Address::getCity<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#162\">Address::isAvailable<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#167\">Address::isDefault<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#175\">Address::getCustomerAddress<\/a>"],[0,1,"<a href=\"Entity\/Address.php.html#183\">Address::setId<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#191\">Address::setAddress1<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#199\">Address::setAddress2<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#207\">Address::setAddress3<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#215\">Address::setCity<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#223\">Address::setIsAvailable<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#231\">Address::setIsDefault<\/a>"],[100,1,"<a href=\"Entity\/Address.php.html#239\">Address::setCustomerAddress<\/a>"],[0,1,"<a href=\"Entity\/Brand.php.html#54\">Brand::getId<\/a>"],[0,1,"<a href=\"Entity\/Brand.php.html#62\">Brand::getName<\/a>"],[0,1,"<a href=\"Entity\/Brand.php.html#70\">Brand::setId<\/a>"],[0,1,"<a href=\"Entity\/Brand.php.html#78\">Brand::setName<\/a>"],[0,1,"<a href=\"Entity\/City.php.html#82\">City::getId<\/a>"],[100,1,"<a href=\"Entity\/City.php.html#90\">City::getName<\/a>"],[0,1,"<a href=\"Entity\/City.php.html#98\">City::getZipCode<\/a>"],[100,1,"<a href=\"Entity\/City.php.html#106\">City::getCountry<\/a>"],[0,1,"<a href=\"Entity\/City.php.html#114\">City::setId<\/a>"],[0,1,"<a href=\"Entity\/City.php.html#122\">City::setName<\/a>"],[100,1,"<a href=\"Entity\/City.php.html#130\">City::setCountry<\/a>"],[0,1,"<a href=\"Entity\/City.php.html#138\">City::setZipCode<\/a>"],[0,1,"<a href=\"Entity\/Country.php.html#54\">Country::getId<\/a>"],[100,1,"<a href=\"Entity\/Country.php.html#62\">Country::getName<\/a>"],[0,1,"<a href=\"Entity\/Country.php.html#70\">Country::setId<\/a>"],[0,1,"<a href=\"Entity\/Country.php.html#78\">Country::setName<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#58\">Feature::getId<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#66\">Feature::getName<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#74\">Feature::getValue<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#82\">Feature::getParticularProduct<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#90\">Feature::setId<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#98\">Feature::setName<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#106\">Feature::setValue<\/a>"],[0,1,"<a href=\"Entity\/Feature.php.html#114\">Feature::setParticularProduct<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#35\">Order::getId<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#43\">Order::getProducts<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#51\">Order::getCustomer<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#59\">Order::getDeliveryAddress<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#67\">Order::getBillingAddress<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#75\">Order::soldAt<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#80\">Order::isWaitingForCustomerPayement<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#85\">Order::isWaitingForConsumerPayment<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#93\">Order::setId<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#101\">Order::setCustomer<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#109\">Order::setDeliveryAddress<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#117\">Order::setBillingAddress<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#125\">Order::setSoldAt<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#133\">Order::setIsWaitingForConsumerPayment<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#141\">Order::setIsWaitingForCustomerPayment<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#146\">Order::addProduct<\/a>"],[0,1,"<a href=\"Entity\/Order.php.html#151\">Order::removeProduct<\/a>"],[0,1,"<a href=\"Entity\/Os.php.html#43\">Os::getId<\/a>"],[0,1,"<a href=\"Entity\/Os.php.html#51\">Os::getName<\/a>"],[0,1,"<a href=\"Entity\/Os.php.html#59\">Os::setId<\/a>"],[0,1,"<a href=\"Entity\/Os.php.html#67\">Os::setName<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#116\">ParticularProduct::__construct<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#127\">ParticularProduct::getMemory<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#135\">ParticularProduct::getMemoryUnit<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#143\">ParticularProduct::getColorName<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#151\">ParticularProduct::getColorThumbnail<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#159\">ParticularProduct::getPictures<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#167\">ParticularProduct::getFeatures<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#175\">ParticularProduct::getPrice<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#183\">ParticularProduct::getVat<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#191\">ParticularProduct::getStock<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#196\">ParticularProduct::isAvailable<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#204\">ParticularProduct::getAvailabilityDate<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#209\">ParticularProduct::isDefault<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#217\">ParticularProduct::getProduct<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#225\">ParticularProduct::setMemory<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#233\">ParticularProduct::setMemoryUnit<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#241\">ParticularProduct::setColorName<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#249\">ParticularProduct::setColorThumbnail<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#257\">ParticularProduct::setPrice<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#265\">ParticularProduct::setVat<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#273\">ParticularProduct::setStock<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#281\">ParticularProduct::setIsAvailable<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#289\">ParticularProduct::setAvailabilityDate<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#297\">ParticularProduct::setIsDefault<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#302\">ParticularProduct::decreaseStock<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#307\">ParticularProduct::addPicture<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#312\">ParticularProduct::removePicture<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#317\">ParticularProduct::addFeature<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#322\">ParticularProduct::removeFeature<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#330\">ParticularProduct::setProduct<\/a>"],[100,1,"<a href=\"Entity\/ParticularProduct.php.html#338\">ParticularProduct::getId<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#343\">ParticularProduct::getName<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#348\">ParticularProduct::getDescription<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#353\">ParticularProduct::getBrand<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#358\">ParticularProduct::getCameraResolution<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#363\">ParticularProduct::getScreenSize<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#368\">ParticularProduct::getRate<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#373\">ParticularProduct::getSar<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#378\">ParticularProduct::getSimCard<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#383\">ParticularProduct::getOs<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#388\">ParticularProduct::isTactile<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#393\">ParticularProduct::setId<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#398\">ParticularProduct::setName<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#403\">ParticularProduct::setDescription<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#408\">ParticularProduct::setBrand<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#413\">ParticularProduct::setCameraResolution<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#418\">ParticularProduct::setOs<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#423\">ParticularProduct::setScreenSize<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#428\">ParticularProduct::setRate<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#433\">ParticularProduct::setSar<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#438\">ParticularProduct::setSimCard<\/a>"],[0,1,"<a href=\"Entity\/ParticularProduct.php.html#443\">ParticularProduct::setIsTactile<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#60\">Picture::getId<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#68\">Picture::getAlt<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#76\">Picture::getUrl<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#81\">Picture::isDafault<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#89\">Picture::getParticularProduct<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#97\">Picture::setId<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#105\">Picture::setAlt<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#113\">Picture::setUrl<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#121\">Picture::setIsDefault<\/a>"],[0,1,"<a href=\"Entity\/Picture.php.html#129\">Picture::setParticularProduct<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#165\">Product::__construct<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#173\">Product::getId<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#181\">Product::getName<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#189\">Product::getDescription<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#197\">Product::getBrand<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#205\">Product::getCameraResolution<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#213\">Product::getOs<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#221\">Product::getScreenSize<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#229\">Product::getRate<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#237\">Product::getSar<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#245\">Product::getSimCard<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#253\">Product::isTactile<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#261\">Product::getLinked<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#269\">Product::setId<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#277\">Product::setName<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#285\">Product::setDescription<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#293\">Product::setBrand<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#301\">Product::setCameraResolution<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#309\">Product::setOs<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#317\">Product::setScreenSize<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#325\">Product::setRate<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#333\">Product::setSar<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#341\">Product::setSimCard<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#349\">Product::setIsTactile<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#354\">Product::addLinked<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#359\">Product::removeLinked<\/a>"],[100,2,"<a href=\"Entity\/Product.php.html#364\">Product::isInstanceOfParticularProduct<\/a>"],[0,1,"<a href=\"Entity\/Rate.php.html#43\">Rate::getId<\/a>"],[0,1,"<a href=\"Entity\/Rate.php.html#51\">Rate::getName<\/a>"],[0,1,"<a href=\"Entity\/Rate.php.html#59\">Rate::setId<\/a>"],[0,1,"<a href=\"Entity\/Rate.php.html#67\">Rate::setName<\/a>"],[0,1,"<a href=\"Entity\/SimCard.php.html#43\">SimCard::getId<\/a>"],[0,1,"<a href=\"Entity\/SimCard.php.html#51\">SimCard::getName<\/a>"],[0,1,"<a href=\"Entity\/SimCard.php.html#59\">SimCard::setId<\/a>"],[0,1,"<a href=\"Entity\/SimCard.php.html#67\">SimCard::setName<\/a>"],[100,3,"<a href=\"EventListener\/CustomerDeletionListener.php.html#15\">CustomerDeletionListener::preRemove<\/a>"],[66.666666666667,3,"<a href=\"Model\/Services\/AddressChecker.php.html#12\">AddressChecker::Check<\/a>"],[85.714285714286,2,"<a href=\"Repository\/AbstractRepository.php.html#17\">AbstractRepository::paginate<\/a>"],[100,2,"<a href=\"Repository\/ProductRepository.php.html#14\">ProductRepository::search<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#103\">UserTrait::getName<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#111\">UserTrait::getSurname<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#119\">UserTrait::getBillingAddress<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#127\">UserTrait::getPhone<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#135\">UserTrait::getCellPhone<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#143\">UserTrait::getMail<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#151\">UserTrait::isAvailable<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#159\">UserTrait::setName<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#167\">UserTrait::setSurname<\/a>"],[0,1,"<a href=\"Model\/Entity\/UserTrait.php.html#175\">UserTrait::setBillingAddress<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#183\">UserTrait::setPhone<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#191\">UserTrait::setCellPhone<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#199\">UserTrait::setMail<\/a>"],[100,1,"<a href=\"Model\/Entity\/UserTrait.php.html#207\">UserTrait::setIsAvailable<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

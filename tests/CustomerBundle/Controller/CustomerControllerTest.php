@@ -90,6 +90,13 @@ class CustomerControllerTest extends WebTestCase
         $this->assertArrayHasKey('mail', $customer);
         $this->assertArrayHasKey('name', $customer);
 
+        $data = '';
+
+        $client = static::createClient();
+        $crawler = $client->request('POST', '/customers', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+        $response = $client->getResponse();
+        $this->assertEquals(400, $response->getStatusCode());
+
     }
 
     public function testUpdate()
@@ -147,61 +154,13 @@ class CustomerControllerTest extends WebTestCase
         $crawler = $client->request('PUT', '/customers/'.$customer['_embedded']['items'][0]['id'], [], [], ['CONTENT_TYPE' => 'application/json'], $data);
         $response = $client->getResponse();
         $this->assertEquals(200, $response->getStatusCode());
-        $customer = json_decode($response->getContent(), true);
-        $this->assertEquals('Daniel', $customer['surname']);
-    }
+        $customer2 = json_decode($response->getContent(), true);
+        $this->assertEquals('Daniel', $customer2['surname']);
 
-    public function testAddAddress()
-    {
-        $data = '
-        {
-            "address1": "40 rue de la place",
-            "address2": null,
-            "address3": null,
-            "city": {
-                "id": 1,
-                "name": "Limoux",
-                "zip_code": "11300",
-                "country": {
-                    "name": "France"
-                }
-            },
-            "is_available": true,
-            "is_default": true,
-            "customer_address": null
-        }
-        ';
-
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/customers?order=desc&limit=1');
+        $data = '';
+        $crawler = $client->request('PUT', '/customers/'.$customer['_embedded']['items'][0]['id'], [], [], ['CONTENT_TYPE' => 'application/json'], $data);
         $response = $client->getResponse();
-        $customer = json_decode($response->getContent(), true);
-
-        $crawler = $client->request('POST', '/address/'.$customer['_embedded']['items'][0]['id'], [], [], ['CONTENT_TYPE' => 'application/json'], $data);
-        $response = $client->getResponse();
-        $this->assertEquals(201, $response->getStatusCode());
-        $address = json_decode($response->getContent(), true);
-
-        $data = '
-        {
-            "address1": "60 rue de la place",
-            "address2": null,
-            "address3": null,
-            "city": {
-                "id": 1,
-                "name": "Limoux",
-                "zip_code": "11300",
-                "country": {
-                    "name": "France"
-                }
-            },
-            "is_available": true,
-            "is_default": true,
-            "customer_address": null
-        }
-        ';
-
+        $this->assertEquals(400, $response->getStatusCode());
     }
 
     public function testDelete()

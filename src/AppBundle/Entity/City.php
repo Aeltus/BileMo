@@ -26,6 +26,7 @@ class City
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $id;
@@ -42,6 +43,7 @@ class City
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $name;
@@ -58,6 +60,7 @@ class City
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $zipCode;
@@ -68,6 +71,7 @@ class City
      *
      * @Assert\Valid
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $country;

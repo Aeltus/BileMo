@@ -71,6 +71,7 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $id;
@@ -78,6 +79,7 @@ class Product
     /**
      * @ORM\Column(name="name", type="string", nullable=false, length=100)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $name;
@@ -85,6 +87,7 @@ class Product
     /**
      * @ORM\Column(name="description", type="string", nullable=false)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $description;
@@ -92,6 +95,7 @@ class Product
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Brand")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $brand;
@@ -99,6 +103,7 @@ class Product
     /**
      * @ORM\Column(name="camera_resolution", type="float", nullable=false)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $cameraResolution;
@@ -106,6 +111,7 @@ class Product
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Os")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $os;
@@ -113,6 +119,7 @@ class Product
     /**
      * @ORM\Column(name="screen_size", type="float", nullable=false)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $screenSize;
@@ -120,6 +127,7 @@ class Product
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Rate")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $rate;
@@ -127,6 +135,7 @@ class Product
     /**
      * @ORM\Column(name="sar", type="float", nullable=false)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $sar;
@@ -134,6 +143,7 @@ class Product
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SimCard")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $simCard;
@@ -141,6 +151,7 @@ class Product
     /**
      * @ORM\Column(name="is_tactile", type="boolean", nullable=false)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $isTactile;

@@ -43,6 +43,7 @@ class Brand
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $name;

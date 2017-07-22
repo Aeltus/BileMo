@@ -33,6 +33,7 @@ class Picture
     /**
      * @ORM\Column(name="url", type="string", nullable=false, unique=true)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $url;
@@ -40,6 +41,7 @@ class Picture
     /**
      * @ORM\Column(name="alt", type="string", nullable=false, unique=false, length=100)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $alt;
@@ -47,6 +49,7 @@ class Picture
     /**
      * @ORM\Column(name="is_default", type="boolean", nullable=false)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $isDefault = False;

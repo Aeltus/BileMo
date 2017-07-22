@@ -32,6 +32,7 @@ class SimCard
     /**
      * @ORM\Column(name="name", type="string", nullable=false, unique=true)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $name;

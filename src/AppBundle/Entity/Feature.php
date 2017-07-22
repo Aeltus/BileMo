@@ -33,6 +33,7 @@ class Feature
     /**
      * @ORM\Column(name="name", type="string", nullable=false, unique=true)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $name;
@@ -40,6 +41,7 @@ class Feature
     /**
      * @ORM\Column(name="value", type="string", nullable=false, unique=false)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $value;

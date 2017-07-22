@@ -26,6 +26,7 @@ class Country
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $id;
@@ -42,6 +43,7 @@ class Country
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $name;
