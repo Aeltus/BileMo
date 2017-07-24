@@ -76,6 +76,7 @@ class Address
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $address3;
@@ -96,6 +97,7 @@ class Address
      * @Assert\NotBlank(message="ce champ doit être renseigné")
      * @Assert\Type("bool", message="Ce champ attend un booleen")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $isAvailable;
@@ -117,7 +119,7 @@ class Address
      * @Serializer\Since("1.0")
      * @Expose
      */
-    private $customerAddress;
+    private $customerAddress = NULL;
 
     /**
      * @return mixed

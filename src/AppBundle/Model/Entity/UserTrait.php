@@ -22,6 +22,7 @@ Trait UserTrait
      * @Assert\NotBlank(message="Ce champ ne devrait pas être vide")
      * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $name;
@@ -32,6 +33,7 @@ Trait UserTrait
      * @Assert\NotBlank(message="Ce champ ne devrait pas être vide")
      * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $surname;
@@ -41,6 +43,7 @@ Trait UserTrait
      *
      * @Assert\Valid
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $billingAddress;
@@ -56,6 +59,7 @@ Trait UserTrait
      *      maxMessage = "Ce champ comporte {{ value }} et devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $phone = NULL;
@@ -71,6 +75,7 @@ Trait UserTrait
      *      maxMessage = "Ce champ comporte {{ value }} et devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $cellPhone = NULL;
@@ -83,6 +88,7 @@ Trait UserTrait
      *     checkMX = true
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $mail;
@@ -93,6 +99,7 @@ Trait UserTrait
      * @Assert\NotBlank(message="Ce champ ne devrait pas être vide")
      * @Assert\Type("bool", message="Ce champ attend un booleen")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $isAvailable = True;

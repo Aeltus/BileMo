@@ -90,6 +90,7 @@ fos_rest:
         serialize_null: true
     format_listener:
         rules:
+            - { path: '^/api/doc', priorities: ['html'], fallback_format: 'html' }
             - { path: '^/', priorities: ['json'], fallback_format: 'json' }
     param_fetcher_listener: force
     versioning:
@@ -103,3 +104,10 @@ nelmio_api_doc:
   sandbox:
     request_format:
         method: accept_header
+
+csa_guzzle:
+
+    clients:
+        facebook_api:
+            config:
+                base_url: https://graph.facebook.com/me

@@ -23,6 +23,18 @@ class DefaultController extends Controller
      *     description="Get the list of products, and linked products.",
      *     statusCodes={
      *          200="Returned when ok"
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
      *     }
      * )
      *
@@ -92,6 +104,18 @@ class DefaultController extends Controller
      *             "requirement"="\d+",
      *             "description"="The article unique identifier."
      *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
      *     }
      * )
      *
@@ -126,6 +150,18 @@ class DefaultController extends Controller
      *             "dataType"="integer",
      *             "requirement"="\d+",
      *             "description"="The article unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
      *         }
      *     }
      * )

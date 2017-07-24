@@ -38,6 +38,18 @@ class AddressController extends FOSRestController
      *             "requirement"="\d+",
      *             "description"="The address unique identifier."
      *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
      *     }
      * )
      *
@@ -67,12 +79,27 @@ class AddressController extends FOSRestController
      *          400="Returned when the JSON is not correct",
      *          404="Returned when the Customer is not found"
      *     },
+     *     input={
+     *      "class"="AppBundle\Entity\Address",
+     *     },
      *     requirements={
      *         {
      *             "name"="customer",
      *             "dataType"="integer",
      *             "requirement"="\d+",
      *             "description"="The Customer unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
      *         }
      *     }
      * )
@@ -123,12 +150,27 @@ class AddressController extends FOSRestController
      *          400="Returned when JSON is not valid",
      *          404="Returned when the address is not found"
      *     },
+     *     input={
+     *      "class"="AppBundle\Entity\Address",
+     *     },
      *     requirements={
      *         {
      *             "name"="id",
      *             "dataType"="integer",
      *             "requirement"="\d+",
      *             "description"="The address unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
      *         }
      *     }
      * )

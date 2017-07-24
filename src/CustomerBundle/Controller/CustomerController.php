@@ -28,6 +28,18 @@ class CustomerController extends FOSRestController
      *     description="Get all customers",
      *     statusCodes={
      *          200="Returned when ok"
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
      *     }
      * )
      *
@@ -111,6 +123,18 @@ class CustomerController extends FOSRestController
      *             "requirement"="\d+",
      *             "description"="The customer unique identifier."
      *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
      *     }
      * )
      *
@@ -133,9 +157,24 @@ class CustomerController extends FOSRestController
      *     section="Customers",
      *     resource=true,
      *     description="Add a customer. Accept a customer entity in JSON format, in body.",
+     *     input={
+     *      "class"="CustomerBundle\Entity\Customer",
+     *     },
      *     statusCodes={
      *          201="Returned when ok",
      *          400="Returned when JSON is not valid"
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
      *     }
      * )
      *
@@ -203,12 +242,27 @@ class CustomerController extends FOSRestController
      *          400="Returned when JSON is not valid",
      *          404="Returned when customer is not found"
      *     },
+     *     input={
+     *      "class"="CustomerBundle\Entity\Customer",
+     *     },
      *     requirements={
      *         {
      *             "name"="id",
      *             "dataType"="integer",
      *             "requirement"="\d+",
      *             "description"="The customer unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
      *         }
      *     }
      * )
@@ -272,6 +326,18 @@ class CustomerController extends FOSRestController
      *             "dataType"="integer",
      *             "requirement"="\d+",
      *             "description"="The customer unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
      *         }
      *     }
      * )
