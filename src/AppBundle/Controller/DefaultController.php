@@ -12,10 +12,32 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Hateoas\Configuration\Route;
 use Hateoas\Representation\Factory\PagerfantaFactory;
+use Nelmio\ApiDocBundle\Annotation as Doc;
 
 class DefaultController extends Controller
 {
     /**
+     * @Doc\ApiDoc(
+     *     section="Articles",
+     *     resource=true,
+     *     description="Get the list of products, and linked products.",
+     *     statusCodes={
+     *          200="Returned when ok"
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Get(
      *     path = "/articles",
      *     name = "app_articles_show"
@@ -67,6 +89,36 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Articles",
+     *     resource=true,
+     *     description="Get just one product identified by {id}.",
+     *     statusCodes={
+     *          200="Returned when ok",
+     *          404="Returned when the product is not found"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The article unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Get(
      *     path = "/articles/{id}",
      *     name = "app_articles_show_one"
@@ -84,6 +136,36 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Articles",
+     *     resource=true,
+     *     description="Get just one product in details identified by {id}.",
+     *     statusCodes={
+     *          200="Returned when ok",
+     *          404="Returned when the product is not found"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The article unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Get(
      *     path = "/articles/details/{id}",
      *     name = "app_detailed_articles_show_one"

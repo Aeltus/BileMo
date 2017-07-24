@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use AppBundle\Entity\Picture;
 use AppBundle\Entity\Feature;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  *
@@ -22,23 +23,27 @@ class ParticularProduct extends Product
 {
     /**
      * @ORM\Column(name="memory", type="integer", nullable=false)
+     * @Serializer\Since("1.0")
      */
     private $memory;
 
     /**
      * @ORM\Column(name="memory_unit", type="string", nullable=false, length=10)
+     * @Serializer\Since("1.0")
      *
      */
     private $memoryUnit;
 
     /**
      * @ORM\Column(name="color_name", type="string", nullable=false, length=100)
+     * @Serializer\Since("1.0")
      *
      */
     private $colorName;
 
     /**
      * @ORM\Column(name="color_thumbnail", type="string", nullable=false, length=7)
+     * @Serializer\Since("1.0")
      *
      */
     private $colorThumbnail;
@@ -46,6 +51,7 @@ class ParticularProduct extends Product
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Picture", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)
+     * @Serializer\Since("1.0")
      *
      */
     private $pictures;
@@ -53,48 +59,56 @@ class ParticularProduct extends Product
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Feature", mappedBy="particularProduct", orphanRemoval=true)
      * @ORM\JoinColumn(nullable=true)
+     * @Serializer\Since("1.0")
      *
      */
     private $features;
 
     /**
      * @ORM\Column(name="price", type="float", nullable=false)
+     * @Serializer\Since("1.0")
      *
      */
     private $price;
 
     /**
      * @ORM\Column(name="vat", type="float", nullable=false)
+     * @Serializer\Since("1.0")
      *
      */
     private $vat;
 
     /**
      * @ORM\Column(name="stock", type="integer", nullable=false)
+     * @Serializer\Since("1.0")
      *
      */
     private $stock;
 
     /**
      * @ORM\Column(name="is_available", type="boolean", nullable=false)
+     * @Serializer\Since("1.0")
      *
      */
     private $isAvailable = false;
 
     /**
      * @ORM\Column(name="availabitity_date", type="datetime", nullable=false)
+     * @Serializer\Since("1.0")
      *
      */
     private $availabilityDate;
 
     /**
      * @ORM\Column(name="is_default", type="boolean", nullable=false)
+     * @Serializer\Since("1.0")
      *
      */
     private $isDefault = False;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Product", inversedBy="linked")
+     * @Serializer\Since("1.0")
      *
      */
     private $product;

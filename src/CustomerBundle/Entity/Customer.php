@@ -50,6 +50,7 @@ class Customer
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $id;
@@ -60,6 +61,7 @@ class Customer
      * @Assert\NotBlank(message="Le mot de passe ne devrait pas être vide")
      * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $password;
@@ -70,6 +72,7 @@ class Customer
      * @Assert\NotBlank(message="Le sel ne devrait pas être vide")
      * @Assert\Type("string", message="Ce champ attend une chaine de caractères")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $salt;
@@ -80,6 +83,7 @@ class Customer
      * @Assert\NotBlank(message="Ce champ ne devrait pas être vide")
      * @Assert\Type("bool", message="Ce champ attend un booleen")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $isChecked;
@@ -90,6 +94,7 @@ class Customer
      *
      * @Assert\Valid
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $deliveryAddresses;
@@ -99,15 +104,10 @@ class Customer
      *
      * @Assert\Valid
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $consumer;
-
-    /**
-     * @ORM\Column(name="consumer_key", type="string", nullable=true)
-     * @Expose
-     */
-    private $consumerKey = 1;
 
     public function __construct()
     {
@@ -160,14 +160,6 @@ class Customer
     }
 
     /**
-     * @return mixed
-     */
-    public function getConsumerKey()
-    {
-        return $this->consumerKey;
-    }
-
-    /**
      * @param mixed $id
      */
     public function setId($id)
@@ -215,19 +207,6 @@ class Customer
     public function removeDeliveryAddress(Address $address)
     {
         $this->deliveryAddresses->removeElement($address);
-    }
-
-    /**
-     * @param mixed $consumerKey
-     */
-    public function setConsumerKey($consumerKey)
-    {
-        $this->consumerKey = $consumerKey;
-    }
-
-    public function eraseBillingAddress()
-    {
-        $this->billingAddress = NULL;
     }
 
 }

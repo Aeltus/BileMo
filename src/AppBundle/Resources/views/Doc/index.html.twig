@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="content-type" content="text/html">
+
+
+    <title>Bilemo - Documentation</title>
+
+    <meta name="description" content="Vente B2B de téléphonnes">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style type="text/css"> </style>
+
+    <link rel="stylesheet" id="style-perso-css" href="{{ asset('bundles/app/css/styles.css') }}" type="text/css" media="all">
+
+</head>
+
+
+<body>
+
+<div class="container" id="container-principal">
+    <!-- Header
+    ================================================== -->
+    <header class="row">
+        <div class="col-md-12 text-center" id="headerDiv">
+            <h1>Bilemo - Documentation</h1>
+        </div>
+    </header>
+
+    <!-- Contenu
+    ================================================== -->
+    <div class="row" id="pageContent">
+        <div class="row text-center">
+            <h3>Consulter / télécharger la documentation :</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Version précédente (v0.0):</h4>
+                <div class="col-md-12">
+                    <ul>
+                        <li></li>
+                        <hr />
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+                <h4>Version stable (v1.0):</h4>
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="/api/doc/online?_doc=1.0">Consulter en ligne</a></li>
+                        <hr />
+                        <li><a href="{{ asset('bundles/app/doc/v1/documentation_V1.md') }}">Télécharger en Marckdown</a></li>
+                        <li><a href="{{ asset('bundles/app/doc/v1/documentation_V1.pdf') }}">Télécharger en pdf</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+                <h4>Version en développement (v2.0):</h4>
+                <div class="col-md-12">
+                    <ul>
+                        <li></li>
+                        <hr />
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page
+    ================================================== -->
+    <footer class="row">
+        <div class="container-fluid">
+            <div class="row text-center">
+
+            </div>
+        </div>
+
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- Javascript de Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    </footer>
+
+    <!-- ================================================== -->
+</div>
+
+</body>
+
+</html>

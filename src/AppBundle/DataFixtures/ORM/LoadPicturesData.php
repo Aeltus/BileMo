@@ -18,31 +18,20 @@ class LoadPicturesData extends AbstractFixture implements OrderedFixtureInterfac
     public function load(ObjectManager $manager)
     {
 
-        // clear the destination dir
-        $dir = opendir(__DIR__."/../../../../web/bundles/AppBundle/pictures");
-        while($file = readdir($dir)) {
-            if($file!=in_array($file, array(".",".."))){
-                unlink(__DIR__."/../../../../web/bundles/AppBundle/pictures/".$file);
-            }
-        }
-        closedir($dir);
-
-        // Copy new files in destination dir and create entries in database
+        // Create entries in database
         $defaults = [1, 4, 5, 8, 11, 14, 17, 20, 22];
 
         for ($i=1; $i < 25; $i++)
         {
-            if (copy(__DIR__."/../Pictures/".$i.".jpg", __DIR__."/../../../../web/bundles/AppBundle/pictures/".$i.".jpg")) {
-                $picture = new Picture();
-                $picture->setUrl("/bundles/AppBundle/pictures/".$i.".jpg");
-                $picture->setAlt("Prévisualisation du mobile");
-                if (in_array($i, $defaults))
-                {
-                    $picture->setIsDefault(TRUE);
-                }
-                $manager->persist($picture);
-                $this->addReference($i.'.jpg', $picture);
+            $picture = new Picture();
+            $picture->setUrl("/bundles/app/pictures/".$i.".jpg");
+            $picture->setAlt("Prévisualisation du mobile");
+            if (in_array($i, $defaults))
+            {
+                $picture->setIsDefault(TRUE);
             }
+            $manager->persist($picture);
+            $this->addReference($i.'.jpg', $picture);
         }
 
         $manager->flush();

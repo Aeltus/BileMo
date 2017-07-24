@@ -27,6 +27,7 @@ class Address
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $id;
@@ -43,6 +44,7 @@ class Address
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $address1;
@@ -58,6 +60,7 @@ class Address
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $address2;
@@ -73,6 +76,7 @@ class Address
      *      maxMessage = "Ce champ devrait comporter au maximum {{ limit }} caractères."
      * )
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $address3;
@@ -82,6 +86,7 @@ class Address
      *
      * @Assert\Valid
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $city;
@@ -92,6 +97,7 @@ class Address
      * @Assert\NotBlank(message="ce champ doit être renseigné")
      * @Assert\Type("bool", message="Ce champ attend un booleen")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $isAvailable;
@@ -102,6 +108,7 @@ class Address
      * @Assert\NotBlank(message="ce champ doit être renseigné")
      * @Assert\Type("bool", message="Ce champ attend un booleen")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $isDefault;
@@ -109,9 +116,10 @@ class Address
     /**
      * @ORM\ManyToOne(targetEntity="CustomerBundle\Entity\Customer", inversedBy="deliveryAddresses")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
-    private $customerAddress;
+    private $customerAddress = NULL;
 
     /**
      * @return mixed

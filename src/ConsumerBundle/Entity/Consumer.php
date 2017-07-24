@@ -14,6 +14,7 @@ use AppBundle\Entity\Brand;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Table(name="consumer")
@@ -21,7 +22,7 @@ use JMS\Serializer\Annotation\Expose;
  *
  * @ExclusionPolicy("all")
  */
-class Consumer
+class Consumer implements UserInterface
 {
     use UserTrait;
 
@@ -30,6 +31,7 @@ class Consumer
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $id;
@@ -37,6 +39,7 @@ class Consumer
     /**
      * @ORM\Column(name="society_name", type="string", nullable=false, length=100, unique=true)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $societyName;
@@ -44,6 +47,7 @@ class Consumer
     /**
      * @ORM\Column(name="payment_delay", type="string")
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $paymentsDelay;
@@ -52,13 +56,42 @@ class Consumer
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Brand", orphanRemoval=true, cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      *
+     * @Serializer\Since("1.0")
      * @Expose
      */
     private $brands;
 
+    /**
+     * @ORM\Column(name="facebook_id", type="string", nullable=true, unique=true)
+     */
+    private $facebookId;
+
     public function __construct()
     {
         $this->brands = new ArrayCollection();
+    }
+
+    public function getUsername()
+    {
+        return $this->mail;
+    }
+
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
+
+
+    public function getPassword()
+    {
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function eraseCredentials()
+    {
     }
 
     /**
@@ -94,6 +127,14 @@ class Consumer
     }
 
     /**
+     * @return mixed
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+    /**
      * @param mixed $id
      */
     public function setId($id)
@@ -125,5 +166,13 @@ class Consumer
     public function removeBrand(Brand $brand)
     {
         $this->brands->removeElement($brand);
+    }
+
+    /**
+     * @param mixed $facebookId
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
     }
 }

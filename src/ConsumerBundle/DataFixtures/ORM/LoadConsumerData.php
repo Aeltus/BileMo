@@ -38,6 +38,7 @@ class LoadConsumerData extends AbstractFixture implements OrderedFixtureInterfac
                 "societyName" => "Doe Compagny",
                 "paymentsDelay" => "30JFM",
                 "brands" => NULL,
+                "facebookId" => "10212796389282922",
                 ],
             2 => [
                 "name" => "Doe",
@@ -60,6 +61,7 @@ class LoadConsumerData extends AbstractFixture implements OrderedFixtureInterfac
                     $this->getReference('Samsung'),
                     $this->getReference('Apple')
                 ],
+                "facebookId" => NULL,
             ]
         ];
 

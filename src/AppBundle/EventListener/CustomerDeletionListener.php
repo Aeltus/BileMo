@@ -25,13 +25,13 @@ class CustomerDeletionListener
         $address = $entity->getBillingAddress();
         $entity->eraseBillingAddress();
         $em->remove($address);
-        $em->flush();
 
         foreach ($entity->getDeliveryAddresses() as $deliveryAddress)
         {
             $entity->removeDeliveryAddress($deliveryAddress);
             $em->remove($deliveryAddress);
-            $em->flush();
         }
+
+        $em->flush();
     }
 }

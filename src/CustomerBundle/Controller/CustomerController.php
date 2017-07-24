@@ -17,10 +17,32 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Nelmio\ApiDocBundle\Annotation as Doc;
 
 class CustomerController extends FOSRestController
 {
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Get all customers",
+     *     statusCodes={
+     *          200="Returned when ok"
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Get(
      *     path = "/customers",
      *     name = "customers_customers_show"
@@ -49,17 +71,31 @@ class CustomerController extends FOSRestController
      *     default="1",
      *     description="The pagination offset"
      * )
+     *
+     * @Rest\QueryParam(
+     *     name="isAvailable",
+     *     requirements="TRUE|FALSE|true|false|0|1",
+     *     default="TRUE",
+     *     description="Availability of the customer (TRUE or FALSE)"
+     * )
+     *
      * @Rest\View(
      *     statusCode = 200
      * )
      */
-    public function customersAction($mail, $order, $limit, $page)
+    public function customersAction($mail, $order, $limit, $page, $isAvailable)
     {
+        if (strtolower($isAvailable) == 'true' || $isAvailable == 1){
+            $isAvailable = TRUE;
+        } else {
+            $isAvailable = FALSE;
+        }
         $pager = $this->getDoctrine()->getRepository('CustomerBundle:Customer')->search(
             $mail,
             $order,
             $limit,
-            $page
+            $page,
+            $isAvailable
         );
 
         $pagerfantaFactory   = new PagerfantaFactory();
@@ -72,6 +108,36 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Get a customer identified by {id}",
+     *     statusCodes={
+     *          200="Returned when ok",
+     *          404="Returned when customer is not found"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The customer unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Get(
      *     path = "/customers/{id}",
      *     name = "customers_customers_show_one",
@@ -87,6 +153,31 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Add a customer. Accept a customer entity in JSON format, in body.",
+     *     input={
+     *      "class"="CustomerBundle\Entity\Customer",
+     *     },
+     *     statusCodes={
+     *          201="Returned when ok",
+     *          400="Returned when JSON is not valid"
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Post(
      *     path = "/customers",
      *     name = "customers_customers_create"
@@ -100,7 +191,7 @@ class CustomerController extends FOSRestController
          * Checking for Violations
          */
         if (count($violations)) {
-            $message = 'The JSON sent contains invalid data. Here are the errors you need to correct: ';
+            $message = 'Le JSON envoyé est incorrect, vous devez envoyer un format JSON valide : ';
             foreach ($violations as $violation) {
                 $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
             }
@@ -113,7 +204,7 @@ class CustomerController extends FOSRestController
         $customerRepo = $em->getRepository('CustomerBundle:Customer');
 
         if($customerRepo->findOneBy(['mail' => $customer->getMail()])){
-            throw new BadRequestHttpException('Ce mail existe déjà, vous ne pouvez créer deux comptes comportant le même mail.');
+            throw new BadRequestHttpException('Ce mail existe déjà, vous ne pouvez créer deux comptes comportant le même mail. Si vous avez déjà un compte, vous pouvez le récupérer.');
         }
 
         if (!$consumer = $consumerRepo->findOneBy(['id' => $customer->getConsumerKey()])){
@@ -142,6 +233,40 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Update a customer identified by {id}. Accept a customer entity in JSON format, in body.",
+     *     statusCodes={
+     *          200="Returned when ok",
+     *          400="Returned when JSON is not valid",
+     *          404="Returned when customer is not found"
+     *     },
+     *     input={
+     *      "class"="CustomerBundle\Entity\Customer",
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The customer unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Put(
      *     path = "/customers/{id}",
      *     name = "customers_customers_update",
@@ -156,7 +281,7 @@ class CustomerController extends FOSRestController
          * Checking for Violations
          */
         if (count($violations)) {
-            $message = 'The JSON sent contains invalid data. Here are the errors you need to correct: ';
+            $message = 'Le JSON envoyé est incorrect, vous devez envoyer un format JSON valide : ';
             foreach ($violations as $violation) {
                 $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
             }
@@ -187,6 +312,36 @@ class CustomerController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Customers",
+     *     resource=true,
+     *     description="Delete a customer identified by {id}. (The customer is not completely deleted, his property isAvailable is set to False)",
+     *     statusCodes={
+     *          204="Returned when ok",
+     *          404="Returned when customer is not found"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The customer unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\View(StatusCode = 204)
      * @Rest\Delete(
      *     path = "/customers/{id}",
@@ -197,7 +352,7 @@ class CustomerController extends FOSRestController
     public function deleteAction(Customer $customer)
     {
         $em = $this->getDoctrine()->getManager();
-        $em->remove($customer);
+        $customer->setIsAvailable(False);
         $em->flush();
 
         return;

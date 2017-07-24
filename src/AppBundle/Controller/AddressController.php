@@ -19,20 +19,50 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Hateoas\Configuration\Route;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Nelmio\ApiDocBundle\Annotation as Doc;
 
 class AddressController extends FOSRestController
 {
     /**
+     * @Doc\ApiDoc(
+     *     section="Address",
+     *     resource=true,
+     *     description="Delete an address identified by {id}. (This address is set to not available, not completely deleted)",
+     *     statusCodes={
+     *          204="Returned when ok"
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="address",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The address unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\View(StatusCode = 204)
      * @Rest\Delete(
-     *     path = "/address/{address}/{customer}",
+     *     path = "/address/{address}",
      *     name = "app_address_delete",
-     *     requirements = {"address"="\d+", "customer"="\d+"}
+     *     requirements = {"address"="\d+"}
      * )
      */
-    public function deleteAction(Address $address, Customer $customer)
+    public function deleteAction(Address $address)
     {
-        $customer->removeDeliveryAddress($address);
+        $address->setIsAvailable(false);
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
@@ -40,6 +70,40 @@ class AddressController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Address",
+     *     resource=true,
+     *     description="Add an address to a Customer identified by {id}. Accept an address entity in JSON format, in body.",
+     *     statusCodes={
+     *          201="Returned when ok",
+     *          400="Returned when the JSON is not correct",
+     *          404="Returned when the Customer is not found"
+     *     },
+     *     input={
+     *      "class"="AppBundle\Entity\Address",
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="customer",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The Customer unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Post(
      *     path = "/address/{customer}",
      *     name = "app_address_create",
@@ -54,7 +118,7 @@ class AddressController extends FOSRestController
          * Checking for Violations
          */
         if (count($violations)) {
-            $message = 'The JSON sent contains invalid data. Here are the errors you need to correct: ';
+            $message = 'Le JSON envoyé est incorrect, vous devez envoyer un format JSON valide : ';
             foreach ($violations as $violation) {
                 $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
             }
@@ -77,6 +141,40 @@ class AddressController extends FOSRestController
     }
 
     /**
+     * @Doc\ApiDoc(
+     *     section="Address",
+     *     resource=true,
+     *     description="Update an address identified by {id}. Accept an address entity in JSON format, in body.",
+     *     statusCodes={
+     *          200="Returned when ok",
+     *          400="Returned when JSON is not valid",
+     *          404="Returned when the address is not found"
+     *     },
+     *     input={
+     *      "class"="AppBundle\Entity\Address",
+     *     },
+     *     requirements={
+     *         {
+     *             "name"="id",
+     *             "dataType"="integer",
+     *             "requirement"="\d+",
+     *             "description"="The address unique identifier."
+     *         }
+     *     },
+     *     headers={
+     *         {
+     *             "name"="Authorization",
+     *             "description"="Authorization key (obtained by OAuth2 authentication)",
+     *             "required"="true"
+     *         },
+     *         {
+     *             "name"="Accept",
+     *             "description"="application/json;version=1.0",
+     *             "required"="false"
+     *         }
+     *     }
+     * )
+     *
      * @Rest\Put(
      *     path = "/address/{id}",
      *     name = "app_address_update",
@@ -91,7 +189,7 @@ class AddressController extends FOSRestController
          * Checking for Violations
          */
         if (count($violations)) {
-            $message = 'The JSON sent contains invalid data. Here are the errors you need to correct: ';
+            $message = 'Le JSON envoyé est incorrect, vous devez envoyer un format JSON valide : ';
             foreach ($violations as $violation) {
                 $message .= sprintf("Field %s: %s ", $violation->getPropertyPath(), $violation->getMessage());
             }
@@ -116,5 +214,6 @@ class AddressController extends FOSRestController
 
         return $address;
     }
+
 }
 

@@ -17,7 +17,8 @@ class ProductRepository extends AbstractRepository
             ->createQueryBuilder('p')
             ->leftJoin('p.brand', 'b')
             ->orderBy('p.id', $order)
-            ->where('p INSTANCE OF AppBundle\Entity\Product');
+            ->where('p INSTANCE OF AppBundle\Entity\Product')
+        ;
 
         if ($brand) {
             $qb
