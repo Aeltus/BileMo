@@ -66,17 +66,23 @@ class DefaultController extends Controller
      *     default="1",
      *     description="The pagination offset"
      * )
+     *
      * @Rest\View(
      *     statusCode = 200
      * )
      */
     public function indexAction($brand, $order, $limit, $page)
     {
+
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+        $brands = $consumer->getBrands();
+
         $pager = $this->getDoctrine()->getRepository('AppBundle:Product')->search(
-            $brand,
+            ucfirst($brand),
             $order,
             $limit,
-            $page
+            $page,
+            $brands
         );
 
         $pagerfantaFactory   = new PagerfantaFactory();
@@ -132,6 +138,9 @@ class DefaultController extends Controller
         if($product instanceof ParticularProduct){
             throw new NotFoundHttpException('Ce produit est introuvable.');
         }
+        $addressChecker = $this->container->get('product_checker');
+        $addressChecker->Owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $product);
+
         return $product;
     }
 
@@ -176,6 +185,8 @@ class DefaultController extends Controller
      */
     public function productDetailsAction(ParticularProduct $particularProduct)
     {
+        $addressChecker = $this->container->get('product_checker');
+        $addressChecker->Owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $particularProduct);
         if($particularProduct instanceof ParticularProduct){
             return $particularProduct;
         }

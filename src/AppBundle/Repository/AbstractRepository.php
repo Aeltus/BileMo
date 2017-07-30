@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 abstract class AbstractRepository extends EntityRepository
 {
@@ -25,6 +26,11 @@ abstract class AbstractRepository extends EntityRepository
         $currentPage = $page;
         $pager->setCurrentPage($currentPage);
         $pager->setMaxPerPage((int) $limit);
+
+        if ($pager->getNbResults() < 1)
+        {
+            throw new NotFoundHttpException('Votre recherche n\'a pu aboutir.');
+        }
 
         return $pager;
     }

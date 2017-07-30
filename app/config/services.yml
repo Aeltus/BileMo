@@ -21,3 +21,9 @@ services:
     facebook_user_provider:
         class: AppBundle\Security\FacebookUserProvider
         arguments: ["@csa_guzzle.client.facebook_api", "@jms_serializer", "@doctrine"]
+
+    product_checker:
+          class: AppBundle\Model\Services\ProductChecker
+
+    customer_checker:
+          class: CustomerBundle\Model\Services\CustomerChecker

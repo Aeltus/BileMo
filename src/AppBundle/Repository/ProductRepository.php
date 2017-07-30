@@ -8,11 +8,14 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Repository\AbstractRepository;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProductRepository extends AbstractRepository
 {
-    public function search($brand, $order = 'asc', $limit = 5, $page = 1)
+    public function search($brand, $order = 'asc', $limit = 5, $page = 1, $brands)
     {
+        $brandsNames = [];
+
         $qb = $this
             ->createQueryBuilder('p')
             ->leftJoin('p.brand', 'b')
@@ -20,12 +23,38 @@ class ProductRepository extends AbstractRepository
             ->where('p INSTANCE OF AppBundle\Entity\Product')
         ;
 
-        if ($brand) {
-            $qb
-                ->andWhere('b.name = ?1')
-                ->setParameter(1, $brand);
+        if($brands !== NULL){
+            foreach ($brands as $currentBrand){
+                $brandsNames[] = $currentBrand->getName();
+            }
         }
 
+        if (($brand !== '' && in_array($brand, $brandsNames)) || $brands === NULL) {
+            $qb
+                ->andWhere('b.name = ?1')
+                ->setParameter(1, $brand)
+            ;
+        } elseif ($brand == '' && count($brands) > 0){
+            $i=1;
+            foreach ($brands as $currentBrand){
+                $i++;
+                if ($i == 2){
+                    $qb
+                        ->andWhere('b.name = ?'.$i)
+                    ;
+                } else {
+                    $qb
+                        ->orWhere('b.name = ?'.$i)
+                    ;
+                }
+                $qb
+                    ->setParameter($i, $currentBrand->getName())
+                ;
+
+            }
+        } else {
+            throw new NotFoundHttpException('Vous ne représentez pas cette marque');
+        }
         return $this->paginate($qb, $limit, $page);
     }
 }

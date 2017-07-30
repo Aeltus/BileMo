@@ -72,7 +72,7 @@ class LoadCustomerData extends AbstractFixture implements OrderedFixtureInterfac
                 "password" => "my_encoded_password",
                 "salt" => "my_encoded_salt",
                 "isChecked" => true,
-                "consumer" => "Doe Compagny"
+                "consumer" => "Doe Compagny and sons"
             ],
             3 => [
                 "name" => "Dufour",
