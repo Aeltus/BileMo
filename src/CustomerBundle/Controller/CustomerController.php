@@ -209,7 +209,6 @@ class CustomerController extends FOSRestController
         }
 
         $em = $this->getDoctrine()->getManager();
-        $consumerRepo = $em->getRepository('ConsumerBundle:Consumer');
         $customerRepo = $em->getRepository('CustomerBundle:Customer');
 
         if($customerRepo->findOneBy(['mail' => $customer->getMail()])){
@@ -299,7 +298,6 @@ class CustomerController extends FOSRestController
         $customerChecker->Owner($consumer, $customer);
 
         $em = $this->getDoctrine()->getManager();
-        $consumerRepo = $em->getRepository('ConsumerBundle:Consumer');
 
         $customer->setPassword($newCustomer->getPassword());
         $customer->setSalt($newCustomer->getSalt());

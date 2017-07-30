@@ -20,13 +20,9 @@ class CustomerRepository extends AbstractRepository
             ->orderBy('c.id', $order)
             ->where('c.isAvailable = ?0')
             ->setParameter(0, $isAvailable)
+            ->andWhere('d.id = ?1')
+            ->setParameter(1, $consumer->getId())
         ;
-
-        if ($id !== NULL){
-            $qb
-                ->andWhere('c.id = ?2')
-                ->setParameter(2,(int) $id);
-        }
 
         if ($mail) {
             $qb

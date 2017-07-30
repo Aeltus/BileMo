@@ -68,7 +68,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;33</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;43</div></td>
      </tr>
 
      <tr>
@@ -97,7 +97,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;33</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;43</div></td>
      </tr>
 
      <tr>
@@ -118,7 +118,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;4</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;6</div></td>
      </tr>
 
      <tr>
@@ -139,7 +139,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;12</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;16</div></td>
      </tr>
 
      <tr>
@@ -160,7 +160,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;17</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;21</div></td>
      </tr>
 
 
@@ -231,13 +231,13 @@
      <tr><td><div align="right"><a name="61"></a><a href="#61">61</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;)</span></td></tr>
      <tr><td><div align="right"><a name="62"></a><a href="#62">62</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="63"></a><a href="#63">63</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">deleteAction</span><span class="keyword">(</span><span class="default">Address</span><span class="default">&nbsp;</span><span class="default">$address</span><span class="keyword">)</span></td></tr>
-     <tr><td><div align="right"><a name="64"></a><a href="#64">64</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="64"></a><a href="#64">64</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="65"></a><a href="#65">65</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$address</span><span class="default">-&gt;</span><span class="default">setIsAvailable</span><span class="keyword">(</span><span class="default">false</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="66"></a><a href="#66">66</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$em</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">getDoctrine</span><span class="keyword">(</span><span class="keyword">)</span><span class="default">-&gt;</span><span class="default">getManager</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="67"></a><a href="#67">67</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$em</span><span class="default">-&gt;</span><span class="default">flush</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="68"></a><a href="#68">68</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="69"></a><a href="#69">69</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="keyword">;</span></td></tr>
-     <tr class="warning"><td><div align="right"><a name="70"></a><a href="#70">70</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="70"></a><a href="#70">70</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="71"></a><a href="#71">71</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="72"></a><a href="#72">72</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
      <tr><td><div align="right"><a name="73"></a><a href="#73">73</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@Doc\ApiDoc(</span></td></tr>
@@ -283,7 +283,7 @@
      <tr><td><div align="right"><a name="113"></a><a href="#113">113</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@ParamConverter(&quot;address&quot;,&nbsp;converter=&quot;fos_rest.request_body&quot;)</span></td></tr>
      <tr><td><div align="right"><a name="114"></a><a href="#114">114</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="115"></a><a href="#115">115</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">createAction</span><span class="keyword">(</span><span class="default">Address</span><span class="default">&nbsp;</span><span class="default">$address</span><span class="keyword">,</span><span class="default">&nbsp;&nbsp;</span><span class="default">Customer</span><span class="default">&nbsp;</span><span class="default">$customer</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">ConstraintViolationList</span><span class="default">&nbsp;</span><span class="default">$violations</span><span class="keyword">)</span></td></tr>
-     <tr><td><div align="right"><a name="116"></a><a href="#116">116</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="116"></a><a href="#116">116</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr><td><div align="right"><a name="117"></a><a href="#117">117</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/*</span></td></tr>
      <tr><td><div align="right"><a name="118"></a><a href="#118">118</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Checking&nbsp;for&nbsp;Violations</span></td></tr>
      <tr><td><div align="right"><a name="119"></a><a href="#119">119</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
@@ -291,10 +291,10 @@
      <tr class="danger"><td><div align="right"><a name="121"></a><a href="#121">121</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$message</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">'Le&nbsp;JSON&nbsp;envoyé&nbsp;est&nbsp;incorrect,&nbsp;vous&nbsp;devez&nbsp;envoyer&nbsp;un&nbsp;format&nbsp;JSON&nbsp;valide&nbsp;:&nbsp;'</span><span class="keyword">;</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="122"></a><a href="#122">122</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">foreach</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$violations</span><span class="default">&nbsp;</span><span class="keyword">as</span><span class="default">&nbsp;</span><span class="default">$violation</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="123"></a><a href="#123">123</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$message</span><span class="default">&nbsp;</span><span class="default">.=</span><span class="default">&nbsp;</span><span class="default">sprintf</span><span class="keyword">(</span><span class="default">&quot;Field&nbsp;%s:&nbsp;%s&nbsp;&quot;</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$violation</span><span class="default">-&gt;</span><span class="default">getPropertyPath</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$violation</span><span class="default">-&gt;</span><span class="default">getMessage</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
-     <tr><td><div align="right"><a name="124"></a><a href="#124">124</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="124"></a><a href="#124">124</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="125"></a><a href="#125">125</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="126"></a><a href="#126">126</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">throw</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="default">BadRequestHttpException</span><span class="keyword">(</span><span class="default">$violations</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
-     <tr><td><div align="right"><a name="127"></a><a href="#127">127</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="127"></a><a href="#127">127</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="128"></a><a href="#128">128</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="129"></a><a href="#129">129</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$em</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">getDoctrine</span><span class="keyword">(</span><span class="keyword">)</span><span class="default">-&gt;</span><span class="default">getManager</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="130"></a><a href="#130">130</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/*</span></td></tr>
@@ -308,7 +308,7 @@
      <tr class="danger"><td><div align="right"><a name="138"></a><a href="#138">138</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$em</span><span class="default">-&gt;</span><span class="default">flush</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="139"></a><a href="#139">139</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="140"></a><a href="#140">140</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$customer</span><span class="keyword">;</span></td></tr>
-     <tr class="warning"><td><div align="right"><a name="141"></a><a href="#141">141</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="141"></a><a href="#141">141</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="142"></a><a href="#142">142</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="143"></a><a href="#143">143</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
      <tr><td><div align="right"><a name="144"></a><a href="#144">144</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@Doc\ApiDoc(</span></td></tr>
@@ -354,7 +354,7 @@
      <tr><td><div align="right"><a name="184"></a><a href="#184">184</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@ParamConverter(&quot;newAddress&quot;,&nbsp;converter=&quot;fos_rest.request_body&quot;)</span></td></tr>
      <tr><td><div align="right"><a name="185"></a><a href="#185">185</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
      <tr><td><div align="right"><a name="186"></a><a href="#186">186</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">updateAction</span><span class="keyword">(</span><span class="default">Address</span><span class="default">&nbsp;</span><span class="default">$address</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">Address</span><span class="default">&nbsp;</span><span class="default">$newAddress</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">ConstraintViolationList</span><span class="default">&nbsp;</span><span class="default">$violations</span><span class="keyword">)</span></td></tr>
-     <tr><td><div align="right"><a name="187"></a><a href="#187">187</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="187"></a><a href="#187">187</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr><td><div align="right"><a name="188"></a><a href="#188">188</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/*</span></td></tr>
      <tr><td><div align="right"><a name="189"></a><a href="#189">189</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Checking&nbsp;for&nbsp;Violations</span></td></tr>
      <tr><td><div align="right"><a name="190"></a><a href="#190">190</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
@@ -362,10 +362,10 @@
      <tr class="danger"><td><div align="right"><a name="192"></a><a href="#192">192</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$message</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">'Le&nbsp;JSON&nbsp;envoyé&nbsp;est&nbsp;incorrect,&nbsp;vous&nbsp;devez&nbsp;envoyer&nbsp;un&nbsp;format&nbsp;JSON&nbsp;valide&nbsp;:&nbsp;'</span><span class="keyword">;</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="193"></a><a href="#193">193</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">foreach</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$violations</span><span class="default">&nbsp;</span><span class="keyword">as</span><span class="default">&nbsp;</span><span class="default">$violation</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="194"></a><a href="#194">194</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$message</span><span class="default">&nbsp;</span><span class="default">.=</span><span class="default">&nbsp;</span><span class="default">sprintf</span><span class="keyword">(</span><span class="default">&quot;Field&nbsp;%s:&nbsp;%s&nbsp;&quot;</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$violation</span><span class="default">-&gt;</span><span class="default">getPropertyPath</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$violation</span><span class="default">-&gt;</span><span class="default">getMessage</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
-     <tr><td><div align="right"><a name="195"></a><a href="#195">195</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="195"></a><a href="#195">195</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="196"></a><a href="#196">196</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="197"></a><a href="#197">197</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">throw</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="default">BadRequestHttpException</span><span class="keyword">(</span><span class="default">$violations</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
-     <tr><td><div align="right"><a name="198"></a><a href="#198">198</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="198"></a><a href="#198">198</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="199"></a><a href="#199">199</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="200"></a><a href="#200">200</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$em</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">getDoctrine</span><span class="keyword">(</span><span class="keyword">)</span><span class="default">-&gt;</span><span class="default">getManager</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="201"></a><a href="#201">201</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$addressChecker</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">container</span><span class="default">-&gt;</span><span class="default">get</span><span class="keyword">(</span><span class="default">'address_checker'</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
@@ -383,7 +383,7 @@
      <tr class="danger"><td><div align="right"><a name="213"></a><a href="#213">213</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$em</span><span class="default">-&gt;</span><span class="default">flush</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="214"></a><a href="#214">214</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="215"></a><a href="#215">215</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$address</span><span class="keyword">;</span></td></tr>
-     <tr class="warning"><td><div align="right"><a name="216"></a><a href="#216">216</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="216"></a><a href="#216">216</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="217"></a><a href="#217">217</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="218"></a><a href="#218">218</a></div></td><td class="codeLine"><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="219"></a><a href="#219">219</a></div></td><td class="codeLine"></td></tr>
@@ -399,7 +399,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.0</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.20-2</a> with <a href="https://xdebug.org/">Xdebug 2.5.1</a> and <a href="https://phpunit.de/">PHPUnit 5.4.6</a> at Wed Jul 26 16:28:05 UTC 2017.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.0</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.20-2</a> with <a href="https://xdebug.org/">Xdebug 2.5.1</a> and <a href="https://phpunit.de/">PHPUnit 5.4.6</a> at Sun Jul 30 22:08:24 UTC 2017.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
    </footer>

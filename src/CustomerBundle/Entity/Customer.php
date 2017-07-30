@@ -209,4 +209,8 @@ class Customer
         $this->deliveryAddresses->removeElement($address);
     }
 
+    public function eraseBillingAddress(){
+        $this->billingAddress = NULL;
+    }
+
 }
