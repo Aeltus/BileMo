@@ -211,7 +211,8 @@ class CustomerController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
         $customerRepo = $em->getRepository('CustomerBundle:Customer');
 
-        if($customerRepo->findOneBy(['mail' => $customer->getMail()])){
+
+        if($customerRepo->findOneFor($customer, $consumer)){
             throw new BadRequestHttpException('Ce mail existe déjà, vous ne pouvez créer deux comptes comportant le même mail. Si vous avez déjà un compte, vous pouvez le récupérer.');
         }
 
@@ -298,6 +299,14 @@ class CustomerController extends FOSRestController
         $customerChecker->Owner($consumer, $customer);
 
         $em = $this->getDoctrine()->getManager();
+        $customerRepo = $em->getRepository('CustomerBundle:Customer');
+
+
+        if($customerRepo->findOneFor($customer, $consumer)){
+            if($customer->getMail() !== $newCustomer->getMail()){
+                throw new BadRequestHttpException('Ce mail existe déjà, vous ne pouvez créer deux comptes comportant le même mail.');
+            }
+        }
 
         $customer->setPassword($newCustomer->getPassword());
         $customer->setSalt($newCustomer->getSalt());

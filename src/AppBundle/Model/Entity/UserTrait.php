@@ -81,7 +81,7 @@ Trait UserTrait
     private $cellPhone = NULL;
 
     /**
-     * @ORM\Column(name="mail", type="string", nullable=false, length=100, unique=true)
+     * @ORM\Column(name="mail", type="string", nullable=false, length=100)
      *
      * @Assert\Email(
      *     message = "Cet Email : '{{ value }}' n\'est pas un email valide.",

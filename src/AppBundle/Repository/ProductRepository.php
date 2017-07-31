@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProductRepository extends AbstractRepository
 {
-    public function search($brand, $order = 'asc', $limit = 5, $page = 1, $brands)
+    public function search($brand, $order = 'asc', $limit = 5, $page = 1, $brands, $isAvailable, \DateTime $availability = NULL)
     {
         $brandsNames = [];
 
@@ -21,7 +21,17 @@ class ProductRepository extends AbstractRepository
             ->leftJoin('p.brand', 'b')
             ->orderBy('p.id', $order)
             ->where('p INSTANCE OF AppBundle\Entity\Product')
+            ->andWhere('p.isAvailable = ?2')
+            ->setParameter(2, $isAvailable)
         ;
+
+        if ($availability !== NULL)
+        {
+            $qb
+                ->andWhere('p.availabilityDate < ?0')
+                ->setParameter(0, $availability->format('Y-m-d H:i:s'))
+                ;
+        }
 
         if($brands !== NULL){
             foreach ($brands as $currentBrand){
@@ -29,16 +39,16 @@ class ProductRepository extends AbstractRepository
             }
         }
 
-        if (($brand !== '' && in_array($brand, $brandsNames)) || $brands === NULL) {
+        if (($brand !== '' && in_array($brand, $brandsNames)) || (count($brands[0]) < 1 && $brand !== '')) {
             $qb
                 ->andWhere('b.name = ?1')
                 ->setParameter(1, $brand)
             ;
-        } elseif ($brand == '' && count($brands) > 0){
-            $i=1;
+        } elseif ($brand == '' && count($brands[0]) > 0){
+            $i=2;
             foreach ($brands as $currentBrand){
                 $i++;
-                if ($i == 2){
+                if ($i == 3){
                     $qb
                         ->andWhere('b.name = ?'.$i)
                     ;
@@ -52,8 +62,6 @@ class ProductRepository extends AbstractRepository
                 ;
 
             }
-        } else {
-            throw new NotFoundHttpException('Vous ne représentez pas cette marque');
         }
         return $this->paginate($qb, $limit, $page);
     }

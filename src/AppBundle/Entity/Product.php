@@ -162,9 +162,24 @@ class Product
      */
     private $linked;
 
+    /**
+     * @ORM\Column(name="is_available", type="boolean", nullable=false)
+     * @Serializer\Since("1.0")
+     *
+     */
+    private $isAvailable = false;
+
+    /**
+     * @ORM\Column(name="availabitity_date", type="datetime", nullable=false)
+     * @Serializer\Since("1.0")
+     *
+     */
+    private $availabilityDate;
+
     public function __construct()
     {
         $this->linked = new ArrayCollection();
+        $this->availabilityDate = new \DateTime();
     }
 
     /**
@@ -263,6 +278,19 @@ class Product
         return $this->linked;
     }
 
+    public function isAvailable()
+    {
+        return $this->isAvailable;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAvailabilityDate()
+    {
+        return $this->availabilityDate;
+    }
+
     /**
      * @param mixed $id
      */
@@ -354,6 +382,22 @@ class Product
     public function addLinked($linked)
     {
         $this->linked[] = $linked;
+    }
+
+    /**
+     * @param mixed $isAvailable
+     */
+    public function setIsAvailable($isAvailable)
+    {
+        $this->isAvailable = $isAvailable;
+    }
+
+    /**
+     * @param mixed $availabilityDate
+     */
+    public function setAvailabilityDate($availabilityDate)
+    {
+        $this->availabilityDate = $availabilityDate;
     }
 
     public function removeLinked($linked)

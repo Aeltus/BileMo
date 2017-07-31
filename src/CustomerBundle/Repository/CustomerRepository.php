@@ -9,6 +9,7 @@ namespace CustomerBundle\Repository;
 
 use AppBundle\Repository\AbstractRepository;
 use ConsumerBundle\Entity\Consumer;
+use CustomerBundle\Entity\Customer;
 
 class CustomerRepository extends AbstractRepository
 {
@@ -31,6 +32,19 @@ class CustomerRepository extends AbstractRepository
         }
 
         return $this->paginate($qb, $limit, $page);
+    }
+
+    public function findOneFor(Customer $customer, Consumer $consumer)
+    {
+        $qb = $this
+            ->createQueryBuilder('c')
+            ->leftJoin('c.consumer', 'd')
+            ->where('c.mail = ?0')
+            ->setParameter(0, $customer->getMail())
+            ->andWhere('d.id = ?1')
+            ->setParameter(1, $consumer->getId())
+            ;
+        return $qb->getQuery()->getResult();
     }
 }
 

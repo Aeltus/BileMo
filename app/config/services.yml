@@ -27,3 +27,4 @@ services:
 
     customer_checker:
           class: CustomerBundle\Model\Services\CustomerChecker
+
