@@ -308,15 +308,16 @@ class CustomerController extends FOSRestController
             }
         }
 
-        $customer->setPassword($newCustomer->getPassword());
-        $customer->setSalt($newCustomer->getSalt());
-        $customer->setIsChecked($newCustomer->IsChecked());
-        $customer->setName($newCustomer->getName());
-        $customer->setSurname($newCustomer->getSurname());
-        $customer->setPhone($newCustomer->getPhone());
-        $customer->setCellPhone($newCustomer->getCellPhone());
-        $customer->setMail($newCustomer->getMail());
-        $customer->setIsAvailable($newCustomer->IsAvailable());
+        $customer->setPassword($newCustomer->getPassword())
+                 ->setSalt($newCustomer->getSalt())
+                 ->setIsChecked($newCustomer->IsChecked())
+                 ->setName($newCustomer->getName())
+                 ->setSurname($newCustomer->getSurname())
+                 ->setPhone($newCustomer->getPhone())
+                 ->setCellPhone($newCustomer->getCellPhone())
+                 ->setMail($newCustomer->getMail())
+                 ->setIsAvailable($newCustomer->IsAvailable())
+        ;
 
         $em->flush();
 

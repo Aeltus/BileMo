@@ -7,9 +7,11 @@
  */
 namespace AppBundle\Model\Services;
 
+use Doctrine\ORM\EntityManager;
+
 class AddressChecker
 {
-    public function Check($address, $em)
+    public function check($address,EntityManager $em)
     {
         $cityRepo = $em->getRepository('AppBundle:City');
         $countryRepo = $em->getRepository('AppBundle:Country');

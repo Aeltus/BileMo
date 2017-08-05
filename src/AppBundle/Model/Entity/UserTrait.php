@@ -166,6 +166,7 @@ Trait UserTrait
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -174,6 +175,7 @@ Trait UserTrait
     public function setSurname($surname)
     {
         $this->surname = $surname;
+        return $this;
     }
 
     /**
@@ -182,6 +184,7 @@ Trait UserTrait
     public function setBillingAddress(Address $billingAddress)
     {
         $this->billingAddress = $billingAddress;
+        return $this;
     }
 
     /**
@@ -190,6 +193,7 @@ Trait UserTrait
     public function setPhone($phone)
     {
         $this->phone = $phone;
+        return $this;
     }
 
     /**
@@ -198,6 +202,7 @@ Trait UserTrait
     public function setCellPhone($cellPhone)
     {
         $this->cellPhone = $cellPhone;
+        return $this;
     }
 
     /**
@@ -206,6 +211,7 @@ Trait UserTrait
     public function setMail($mail)
     {
         $this->mail = $mail;
+        return $this;
     }
 
     /**
@@ -214,6 +220,7 @@ Trait UserTrait
     public function setIsAvailable($isAvailable)
     {
         $this->isAvailable = $isAvailable;
+        return $this;
     }
 
 }
