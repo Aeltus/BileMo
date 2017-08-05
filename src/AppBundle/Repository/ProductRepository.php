@@ -62,6 +62,8 @@ class ProductRepository extends AbstractRepository
                 ;
 
             }
+        } elseif ($brand !== '' && !in_array($brand, $brandsNames)){
+            throw new NotFoundHttpException('Ce produit est introuvable.');
         }
         return $this->paginate($qb, $limit, $page);
     }
