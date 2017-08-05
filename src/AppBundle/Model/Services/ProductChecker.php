@@ -22,7 +22,7 @@ class ProductChecker
             }
         }
         if (empty($brands)){
-            $isOk = True;
+            return True;
         }
         if ($isOk === False){
             throw new NotFoundHttpException('Ce produit n\'existe pas.');

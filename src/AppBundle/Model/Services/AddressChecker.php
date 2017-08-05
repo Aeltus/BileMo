@@ -28,5 +28,6 @@ class AddressChecker
             $em->persist($city);
         }
         $em->flush();
+        return true;
     }
 }
