@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CustomerChecker
 {
-    public function Owner(Consumer $consumer, Customer $customer)
+    public function owner(Consumer $consumer, Customer $customer)
     {
         if ($consumer->getId() !== $customer->getConsumer()->getId())
         {
