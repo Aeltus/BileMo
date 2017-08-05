@@ -167,7 +167,7 @@ class DefaultController extends Controller
             throw new NotFoundHttpException('Ce produit est introuvable.');
         }
         $addressChecker = $this->container->get('product_checker');
-        $addressChecker->Owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $product);
+        $addressChecker->owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $product);
 
         return $product;
     }
@@ -214,7 +214,7 @@ class DefaultController extends Controller
     public function productDetailsAction(ParticularProduct $particularProduct)
     {
         $addressChecker = $this->container->get('product_checker');
-        $addressChecker->Owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $particularProduct);
+        $addressChecker->owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $particularProduct);
         if($particularProduct instanceof ParticularProduct){
             return $particularProduct;
         }

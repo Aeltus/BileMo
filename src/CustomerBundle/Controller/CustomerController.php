@@ -296,7 +296,7 @@ class CustomerController extends FOSRestController
         $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
 
         $customerChecker = $this->container->get('customer_checker');
-        $customerChecker->Owner($consumer, $customer);
+        $customerChecker->owner($consumer, $customer);
 
         $em = $this->getDoctrine()->getManager();
         $customerRepo = $em->getRepository('CustomerBundle:Customer');
@@ -367,7 +367,7 @@ class CustomerController extends FOSRestController
         $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
 
         $customerChecker = $this->container->get('customer_checker');
-        $customerChecker->Owner($consumer, $customer);
+        $customerChecker->owner($consumer, $customer);
         $em = $this->getDoctrine()->getManager();
         $customer->setIsAvailable(False);
         $em->flush();

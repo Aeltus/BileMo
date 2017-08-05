@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProductChecker
 {
-    public function Owner(Consumer $consumer, Product $product){
+    public function owner(Consumer $consumer, Product $product){
         $brands = $consumer->getBrands();
         $isOk = False;
         foreach ($brands as $brand){
