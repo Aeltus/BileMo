@@ -10,7 +10,6 @@ use CustomerBundle\Entity\Customer;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Hateoas\Configuration\Route;
 use Hateoas\Representation\Factory\PagerfantaFactory;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -90,12 +89,16 @@ class CustomerController extends FOSRestController
         } else {
             $isAvailable = FALSE;
         }
+
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+
         $pager = $this->getDoctrine()->getRepository('CustomerBundle:Customer')->search(
             $mail,
             $order,
             $limit,
             $page,
-            $isAvailable
+            $isAvailable,
+            $consumer
         );
 
         $pagerfantaFactory   = new PagerfantaFactory();
@@ -149,6 +152,10 @@ class CustomerController extends FOSRestController
      */
     public function customerAction(Customer $customer)
     {
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+
+        $customerChecker = $this->container->get('customer_checker');
+        $customerChecker->Owner($consumer, $customer);
         return $customer;
     }
 
@@ -187,6 +194,8 @@ class CustomerController extends FOSRestController
      */
     public function createAction(Customer $customer, ConstraintViolationList $violations)
     {
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+
         /*
          * Checking for Violations
          */
@@ -200,15 +209,11 @@ class CustomerController extends FOSRestController
         }
 
         $em = $this->getDoctrine()->getManager();
-        $consumerRepo = $em->getRepository('ConsumerBundle:Consumer');
         $customerRepo = $em->getRepository('CustomerBundle:Customer');
 
-        if($customerRepo->findOneBy(['mail' => $customer->getMail()])){
-            throw new BadRequestHttpException('Ce mail existe déjà, vous ne pouvez créer deux comptes comportant le même mail. Si vous avez déjà un compte, vous pouvez le récupérer.');
-        }
 
-        if (!$consumer = $consumerRepo->findOneBy(['id' => $customer->getConsumerKey()])){
-            throw new BadRequestHttpException('Ce vendeur n\'existe pas.');
+        if($customerRepo->findOneFor($customer, $consumer)){
+            throw new BadRequestHttpException('Ce mail existe déjà, vous ne pouvez créer deux comptes comportant le même mail. Si vous avez déjà un compte, vous pouvez le récupérer.');
         }
 
         /*
@@ -288,23 +293,31 @@ class CustomerController extends FOSRestController
 
             throw new BadRequestHttpException($violations);
         }
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+
+        $customerChecker = $this->container->get('customer_checker');
+        $customerChecker->owner($consumer, $customer);
 
         $em = $this->getDoctrine()->getManager();
-        $consumerRepo = $em->getRepository('ConsumerBundle:Consumer');
+        $customerRepo = $em->getRepository('CustomerBundle:Customer');
 
-        if (!$consumer = $consumerRepo->findOneBy(['id' => $customer->getConsumerKey()])){
-            throw new BadRequestHttpException('Ce vendeur n\'existe pas.');
+
+        if($customerRepo->findOneFor($customer, $consumer)){
+            if($customer->getMail() !== $newCustomer->getMail()){
+                throw new BadRequestHttpException('Ce mail existe déjà, vous ne pouvez créer deux comptes comportant le même mail.');
+            }
         }
 
-        $customer->setPassword($newCustomer->getPassword());
-        $customer->setSalt($newCustomer->getSalt());
-        $customer->setIsChecked($newCustomer->IsChecked());
-        $customer->setName($newCustomer->getName());
-        $customer->setSurname($newCustomer->getSurname());
-        $customer->setPhone($newCustomer->getPhone());
-        $customer->setCellPhone($newCustomer->getCellPhone());
-        $customer->setMail($newCustomer->getMail());
-        $customer->setIsAvailable($newCustomer->IsAvailable());
+        $customer->setPassword($newCustomer->getPassword())
+                 ->setSalt($newCustomer->getSalt())
+                 ->setIsChecked($newCustomer->IsChecked())
+                 ->setName($newCustomer->getName())
+                 ->setSurname($newCustomer->getSurname())
+                 ->setPhone($newCustomer->getPhone())
+                 ->setCellPhone($newCustomer->getCellPhone())
+                 ->setMail($newCustomer->getMail())
+                 ->setIsAvailable($newCustomer->IsAvailable())
+        ;
 
         $em->flush();
 
@@ -351,6 +364,10 @@ class CustomerController extends FOSRestController
      */
     public function deleteAction(Customer $customer)
     {
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+
+        $customerChecker = $this->container->get('customer_checker');
+        $customerChecker->owner($consumer, $customer);
         $em = $this->getDoctrine()->getManager();
         $customer->setIsAvailable(False);
         $em->flush();

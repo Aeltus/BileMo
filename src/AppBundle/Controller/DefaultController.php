@@ -66,17 +66,51 @@ class DefaultController extends Controller
      *     default="1",
      *     description="The pagination offset"
      * )
+     *
+     * @Rest\QueryParam(
+     *     name="isAvailable",
+     *     requirements="TRUE|FALSE|true|false|0|1",
+     *     default="TRUE",
+     *     description="Availability of the product (TRUE or FALSE)"
+     * )
+     *
+     * @Rest\QueryParam(
+     *     name="availabilityDate",
+     *     requirements="^(0[1-9]|[1-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-[0-9]{4}$",
+     *     nullable=true,
+     *     description="Availability date of the product (JJ-MM-AAAA)"
+     * )
+     *
      * @Rest\View(
      *     statusCode = 200
      * )
      */
-    public function indexAction($brand, $order, $limit, $page)
+    public function indexAction($brand, $order, $limit, $page, $isAvailable, $availabilityDate)
     {
+        if (strtolower($isAvailable) == 'true' || $isAvailable == 1){
+            $isAvailable = TRUE;
+        } else {
+            $isAvailable = FALSE;
+        }
+
+        if (!empty($availabilityDate))
+        {
+            $availability = new \DateTime($availabilityDate);
+        } else {
+            $availability = NULL;
+        }
+
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+        $brands = $consumer->getBrands();
+
         $pager = $this->getDoctrine()->getRepository('AppBundle:Product')->search(
-            $brand,
+            ucfirst($brand),
             $order,
             $limit,
-            $page
+            $page,
+            $brands,
+            $isAvailable,
+            $availability
         );
 
         $pagerfantaFactory   = new PagerfantaFactory();
@@ -132,6 +166,9 @@ class DefaultController extends Controller
         if($product instanceof ParticularProduct){
             throw new NotFoundHttpException('Ce produit est introuvable.');
         }
+        $addressChecker = $this->container->get('product_checker');
+        $addressChecker->owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $product);
+
         return $product;
     }
 
@@ -176,6 +213,8 @@ class DefaultController extends Controller
      */
     public function productDetailsAction(ParticularProduct $particularProduct)
     {
+        $addressChecker = $this->container->get('product_checker');
+        $addressChecker->owner($this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId()), $particularProduct);
         if($particularProduct instanceof ParticularProduct){
             return $particularProduct;
         }

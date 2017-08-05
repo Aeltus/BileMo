@@ -47,7 +47,7 @@ class LoadProductsData extends AbstractFixture implements OrderedFixtureInterfac
                     foreach ($productAttributes as $attribute)
                     {
                         $method = 'set'.ucfirst($attribute->getName());
-                        if ($attribute->getName() == "isTactile")
+                        if ($attribute->getName() == "isTactile" || $attribute->getName() == "isAvailable")
                         {
                             $method2 = $attribute->getName();
                         } else {

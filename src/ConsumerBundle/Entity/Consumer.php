@@ -54,7 +54,7 @@ class Consumer implements UserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Brand", orphanRemoval=true, cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinTable(name="consumer_brand")
      *
      * @Serializer\Since("1.0")
      * @Expose

@@ -7,6 +7,7 @@
  */
 namespace AppBundle\Entity;
 
+use CustomerBundle\Entity\Customer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints\DateTime;
 

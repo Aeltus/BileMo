@@ -133,6 +133,9 @@ class AddressController extends FOSRestController
         $addressChecker = $this->container->get('address_checker');
         $addressChecker->check($address, $em);
 
+        $consumer = $this->getDoctrine()->getRepository('ConsumerBundle:Consumer')->findOneById($this->get('security.token_storage')->getToken()->getUser()->getId());
+        $this->container->get('customer_checker')->owner($consumer, $customer);
+
         $address->setCustomerAddress($customer);
         $em->persist($address);
         $em->flush();

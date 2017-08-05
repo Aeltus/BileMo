@@ -39,6 +39,32 @@ use Symfony\Component\Validator\Constraints as Assert;
  *      )
  * )
  *
+ * @Hateoas\Relation(
+ *      "create",
+ *      href = @Hateoas\Route(
+ *          "customers_customers_create",
+ *          absolute = true
+ *      )
+ * )
+ *
+ * @Hateoas\Relation(
+ *      "update",
+ *      href = @Hateoas\Route(
+ *          "customers_customers_update",
+ *          parameters = { "id" = "expr(object.getId())" },
+ *          absolute = true
+ *      )
+ * )
+ *
+ * @Hateoas\Relation(
+ *      "delete",
+ *      href = @Hateoas\Route(
+ *          "customers_customers_delete",
+ *          parameters = { "id" = "expr(object.getId())" },
+ *          absolute = true
+ *      )
+ * )
+ *
  * @ExclusionPolicy("all")
  */
 class Customer
@@ -165,6 +191,7 @@ class Customer
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -173,6 +200,7 @@ class Customer
     public function setPassword($password)
     {
         $this->password = $password;
+        return $this;
     }
 
     /**
@@ -181,6 +209,7 @@ class Customer
     public function setSalt($salt)
     {
         $this->salt = $salt;
+        return $this;
     }
 
     /**
@@ -189,6 +218,7 @@ class Customer
     public function setIsChecked($isChecked)
     {
         $this->isChecked = $isChecked;
+        return $this;
     }
 
     /**
@@ -197,16 +227,24 @@ class Customer
     public function setConsumer(Consumer $consumer = NULL)
     {
         $this->consumer = $consumer;
+        return $this;
     }
 
     public function addDeliveryAddress(Address $address)
     {
         $this->deliveryAddresses[] = $address;
+        return $this;
     }
 
     public function removeDeliveryAddress(Address $address)
     {
         $this->deliveryAddresses->removeElement($address);
+        return $this;
+    }
+
+    public function eraseBillingAddress(){
+        $this->billingAddress = NULL;
+        return $this;
     }
 
 }

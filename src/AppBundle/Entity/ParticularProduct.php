@@ -90,7 +90,7 @@ class ParticularProduct extends Product
      * @Serializer\Since("1.0")
      *
      */
-    private $isAvailable = false;
+    private $isAvailable = true;
 
     /**
      * @ORM\Column(name="availabitity_date", type="datetime", nullable=false)

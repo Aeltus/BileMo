@@ -7,6 +7,7 @@
  */
 namespace Tests\AppBundle\Controller;
 
+use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
@@ -20,13 +21,17 @@ class AddressControllerTest extends WebTestCase
 
     protected function setUp()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/customers?order=desc&limit=1');
-        $response = $client->getResponse();
-        $customer = json_decode($response->getContent(), true);
-        $this->customerId = $customer['_embedded']['items'][0]['id'];
+        $client = new Client(['base_uri' => 'http://bilemo.dev']);
+        $response = $client->request('GET', '/customers/2',
+            ['headers' => [
+                'Authorization' => 'EAAbYujYlTvcBAHhHLgZC0lxZAuES99TLaxKklSIh5e5jfnuZAvG1PqMB2bVRkGqcZCJ63sg2BZAQA4fflrA7s7YQNZBvd4KWesrV0n52rGAxbpXWbNSQavRevWDm8UIg6pnCl0t0fMLVlMAUAmKWRPOk6rl8FK7MO6dHfe6R4ZBFAZDZD'
+            ]]);
 
-        $this->addressId = $customer['_embedded']['items'][0]['delivery_addresses'][0]['id'];
+        $customer = json_decode($response->getBody(), true);
+
+        $this->customerId = $customer['id'];
+
+        $this->addressId = $customer['delivery_addresses'][0]['id'];
     }
 
     public function testCreate()
@@ -37,7 +42,6 @@ class AddressControllerTest extends WebTestCase
                     "address2": null,
                     "address3": null,
                     "city": {
-                        "id": 1,
                         "name": "Limoux",
                         "zip_code": "11300",
                         "country": {
@@ -50,17 +54,18 @@ class AddressControllerTest extends WebTestCase
                 }
                 ';
 
-        $client = static::createClient();
-        $crawler = $client->request('POST', '/address/'.$this->customerId, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
-        $response = $client->getResponse();
+        $client = new Client(['base_uri' => 'http://bilemo.dev']);
+        $response = $client->request('POST', '/address/'.$this->customerId,
+            ['headers' => [
+                'Authorization' => 'EAAbYujYlTvcBAHhHLgZC0lxZAuES99TLaxKklSIh5e5jfnuZAvG1PqMB2bVRkGqcZCJ63sg2BZAQA4fflrA7s7YQNZBvd4KWesrV0n52rGAxbpXWbNSQavRevWDm8UIg6pnCl0t0fMLVlMAUAmKWRPOk6rl8FK7MO6dHfe6R4ZBFAZDZD',
+                'Content-Type' => 'application/json'
+            ],
+             'body' => $data
+            ]);
+
         $this->assertEquals(201, $response->getStatusCode());
 
-        $data = '';
 
-        $client = static::createClient();
-        $crawler = $client->request('POST', '/address/'.$this->customerId, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
-        $response = $client->getResponse();
-        $this->assertEquals(400, $response->getStatusCode());
     }
 
     public function testUpdate()
@@ -85,26 +90,28 @@ class AddressControllerTest extends WebTestCase
         }
         ';
 
-        $client = static::createClient();
-        $crawler = $client->request('PUT', '/address/'.$this->customerId, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
-        $response = $client->getResponse();
+        $client = new Client(['base_uri' => 'http://bilemo.dev']);
+        $response = $client->request('PUT', '/address/'.$this->customerId,
+            ['headers' => [
+                'Authorization' => 'EAAbYujYlTvcBAHhHLgZC0lxZAuES99TLaxKklSIh5e5jfnuZAvG1PqMB2bVRkGqcZCJ63sg2BZAQA4fflrA7s7YQNZBvd4KWesrV0n52rGAxbpXWbNSQavRevWDm8UIg6pnCl0t0fMLVlMAUAmKWRPOk6rl8FK7MO6dHfe6R4ZBFAZDZD',
+                'Content-Type' => 'application/json'
+            ],
+                'body' => $data
+            ]);
         $this->assertEquals(200, $response->getStatusCode());
 
-        $data = '';
-
-        $client = static::createClient();
-        $crawler = $client->request('PUT', '/address/'.$this->customerId, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
-        $response = $client->getResponse();
-        $this->assertEquals(400, $response->getStatusCode());
 
     }
 
     public function testDelete()
     {
 
-        $client = static::createClient();
-        $crawler = $client->request('DELETE', '/address/'.$this->addressId);
-        $response = $client->getResponse();
+        $client = new Client(['base_uri' => 'http://bilemo.dev']);
+        $response = $client->request('DELETE', '/address/'.$this->addressId,
+            ['headers' => [
+                'Authorization' => 'EAAbYujYlTvcBAHhHLgZC0lxZAuES99TLaxKklSIh5e5jfnuZAvG1PqMB2bVRkGqcZCJ63sg2BZAQA4fflrA7s7YQNZBvd4KWesrV0n52rGAxbpXWbNSQavRevWDm8UIg6pnCl0t0fMLVlMAUAmKWRPOk6rl8FK7MO6dHfe6R4ZBFAZDZD'
+                ]
+            ]);
         $this->assertEquals(204, $response->getStatusCode());
 
     }

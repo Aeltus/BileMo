@@ -7,9 +7,9 @@
  */
 namespace ConsumerBundle\Repository;
 
-use AppBundle\Repository\AbstractRepository;
+use Doctrine\ORM\EntityRepository;
 
-class ConsumerRepository extends AbstractRepository
+class ConsumerRepository extends EntityRepository
 {
 
 }
