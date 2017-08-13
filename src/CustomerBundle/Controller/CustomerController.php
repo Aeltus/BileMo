@@ -355,7 +355,7 @@ class CustomerController extends FOSRestController
      *     }
      * )
      *
-     * @Rest\View(StatusCode = 204)
+     * @Rest\View(StatusCode = 202)
      * @Rest\Delete(
      *     path = "/customers/{id}",
      *     name = "customers_customers_delete",
@@ -372,6 +372,6 @@ class CustomerController extends FOSRestController
         $customer->setIsAvailable(False);
         $em->flush();
 
-        return;
+        return $customer;
     }
 }

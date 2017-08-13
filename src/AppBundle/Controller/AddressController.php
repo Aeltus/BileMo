@@ -53,7 +53,7 @@ class AddressController extends FOSRestController
      *     }
      * )
      *
-     * @Rest\View(StatusCode = 204)
+     * @Rest\View(StatusCode = 202)
      * @Rest\Delete(
      *     path = "/address/{address}",
      *     name = "app_address_delete",
@@ -66,7 +66,7 @@ class AddressController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
-        return;
+        return $address;
     }
 
     /**
