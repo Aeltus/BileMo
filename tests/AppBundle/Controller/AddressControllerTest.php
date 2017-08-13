@@ -112,7 +112,7 @@ class AddressControllerTest extends WebTestCase
                 'Authorization' => 'EAAbYujYlTvcBAHhHLgZC0lxZAuES99TLaxKklSIh5e5jfnuZAvG1PqMB2bVRkGqcZCJ63sg2BZAQA4fflrA7s7YQNZBvd4KWesrV0n52rGAxbpXWbNSQavRevWDm8UIg6pnCl0t0fMLVlMAUAmKWRPOk6rl8FK7MO6dHfe6R4ZBFAZDZD'
                 ]
             ]);
-        $this->assertEquals(204, $response->getStatusCode());
+        $this->assertEquals(202, $response->getStatusCode());
 
     }
 
